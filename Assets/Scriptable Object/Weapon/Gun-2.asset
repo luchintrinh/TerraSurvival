@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91543288cda53c448a05236bd9ef0749, type: 3}
+  m_Name: Gun-2
+  m_EditorClassIdentifier: 
+  isGun: 1
+  weaponName: Gun
+  description: Range
+  bonusPhysicDamage: 10
+  bonusMagicalDamage: 0
+  explosionDamage: 50
+  explosionRange: 2
+  strengthenDamage: 50
+  bonusMaxHealth: 0
+  bonusArmor: 0
+  bonusMoveSpeed: 2
+  attackDelay: 0.2
+  attackDelayUltimate: 4
+  forceBack: 0.5
+  attackRange: 10
+  weaponSprite: {fileID: 21300000, guid: 3a8eb52b5c3b6a7408c864fa5e3f631f, type: 3}
+  weaponAni: {fileID: 0}
+  bulletPoolIndex: 0
+  bulletStrengthenPoolIndex: 6
