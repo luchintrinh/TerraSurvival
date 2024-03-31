@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] Sprite initialSprite;
     public Vector3 initialPos;
     public float explosionRange = 1f;
+    public float attackRange;
     LayerMask attackLayerMask;
 
 
@@ -27,9 +28,11 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         attackLayerMask = LayerMask.GetMask("Enemy");
         sfx = FindObjectOfType<SoundManager>();
+        
     }
     private void Start()
     {
+        attackRange = GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().attackRange;
         if (!GetComponent<Animator>()) return;
         ani = GetComponent<Animator>();
     }
@@ -82,7 +85,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Bullet")|| collision.CompareTag("Indicator") || collision.CompareTag("Confiner")) return;
+        if (collision.CompareTag("Player") || collision.CompareTag("Bullet")|| collision.CompareTag("Indicator") || collision.CompareTag("Confiner") || collision.CompareTag("Trigger")) return;
         switch (type)
         {
             case BulletType.normal:
@@ -115,7 +118,7 @@ public class Bullet : MonoBehaviour
     {
         if (!gameObject.activeSelf) return;
         float distance = Vector3.Distance(pos, transform.position);
-        if (distance > GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().attackRange)
+        if (distance > attackRange)
         {
             switch (type)
             {

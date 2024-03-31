@@ -13,5 +13,6 @@ public class EnemyObject : ScriptableObject
     public int damage;
     public float speed;
     public float spawnDelayTime;
+    public float attackRange;
     public int getExp;
 }

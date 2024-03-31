@@ -35,6 +35,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<JsonUtilityReadWrite>().LoadJson();
         Init();
         ChangeSoundSetting();
     }

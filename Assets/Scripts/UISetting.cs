@@ -38,6 +38,7 @@ public class UISetting : MonoBehaviour
         muteMusicToggle.isOn = sound.muteMusic;
         volumnSlider.value = sound.volume;
         
+        
     }
 
     public void OpenOptionsSetting()
@@ -60,6 +61,7 @@ public class UISetting : MonoBehaviour
         sound.muteSFX = muteSFXToggle.isOn;
         sound.volume = volumnSlider.value;
         sound.ChangeSoundSetting();
+        FindObjectOfType<JsonUtilityReadWrite>().SaveToJson();
     }
 
 

@@ -11470,7 +11470,7 @@ GameObject:
   - component: {fileID: 1217655624}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13923,12 +13923,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -30.226553, y: 19.615627}
+    - - {x: -30.226553, y: 19.48368}
       - {x: -30.3243, y: -12.492051}
       - {x: 1.0366778, y: -12.612179}
       - {x: 10.326729, y: -12.570682}
       - {x: 27.826237, y: -12.492514}
-      - {x: 27.795425, y: 19.583641}
+      - {x: 27.795425, y: 19.493637}
   m_UseDelaunayMesh: 0
 --- !u!1 &1522535457
 GameObject:
@@ -14635,6 +14635,7 @@ MonoBehaviour:
   - {fileID: 6301411389172375738, guid: f5b19edfbaa5c8742a80a5e54ea76aed, type: 3}
   - {fileID: 3014346456560118095, guid: 9b66b6dc1ea3c054982c9f6e19c6bd18, type: 3}
   - {fileID: 8427178858967155734, guid: 5a66f43c2eeec8b46a7564cb96ff45b3, type: 3}
+  - {fileID: 5224379095007133096, guid: 0b265a2f1d249264c8449d93275da7e4, type: 3}
 --- !u!1 &1627429810
 GameObject:
   m_ObjectHideFlags: 0
@@ -14648,7 +14649,7 @@ GameObject:
   - component: {fileID: 1627429812}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36632,7 +36633,7 @@ GameObject:
   - component: {fileID: 1995377351}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37299,7 +37300,7 @@ GameObject:
   - component: {fileID: 2094668631}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -29,19 +29,38 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
         isReadySpawn = true;
-        spawnEnemy= StartCoroutine(SpawnEnemyCoroutine());
+        StartCoroutine();
     }
 
 
-    void Update()
+    public void StartNextWave()
     {
-        if (enemyCount >= 100) StopCoroutine(SpawnEnemyCoroutine());
+        if (enemyDead == enemiesOfWave[wave] && wave < waveNumber-1)
+        {
+            StopCoroutine();
+            wave++;
+            if (wave == waveNumber) return;
+            StartCoroutine();
+        }
+        else if(wave==waveNumber) StopCoroutine();
     }
 
+    public void StartCoroutine()
+    {
+        if(spawnEnemy==null)
+        spawnEnemy = StartCoroutine(SpawnEnemyCoroutine());
+    }
+    public void StopCoroutine()
+    {
+        if (spawnEnemy != null)
+        {
+            StopCoroutine(spawnEnemy);
+            spawnEnemy = null;
+        }
+        
+    }
     IEnumerator SpawnEnemyCoroutine()
     {
-        for (wave = 0; wave < waveNumber; wave++)
-        {
             while (enemyCount<enemiesOfWave[wave])
             {
                 if (preEnemy == null)
@@ -61,9 +80,6 @@ public class SpawnEnemy : MonoBehaviour
                 enemy.transform.position = pointSpawn[enemySpawnPoint].position;
                 enemyCount++;
             }
-            yield return new WaitForSeconds(waveDelayEachOther[wave]);
-        }
-        BossSpawn();
     }
     public void BossSpawn()
     {

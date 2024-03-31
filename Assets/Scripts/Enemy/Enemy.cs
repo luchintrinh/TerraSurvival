@@ -52,7 +52,8 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
-        GetComponent<Collider2D>().enabled = true;
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
         GetComponent<HealthManager>().health = GetComponent<HealthManager>().maxHealth;
         health.isLive = true;
     }
@@ -60,7 +61,6 @@ public class Enemy : MonoBehaviour
     {
         if (ani.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
         rb.velocity = Vector2.zero;
-
         player = GetComponent<FindNearest>().FindPlayer();
         if (!player||!health.isLive) return;
         

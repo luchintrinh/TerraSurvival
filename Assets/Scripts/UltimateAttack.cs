@@ -42,7 +42,6 @@ public class UltimateAttack : MonoBehaviour
     {
         timeDelay = GetComponent<PlayerSetting>().attackDelayUltimate;
         timer = timeDelay;
-        Debug.Log(timer);
         ani = transform.GetChild(2).GetComponent<Animator>();
     }
     public void Attack(Vector2 dir)

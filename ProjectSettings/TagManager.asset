@@ -9,6 +9,8 @@ TagManager:
   - Indicator
   - Boundary
   - Confiner
+  - EBullet
+  - Trigger
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class HealthManager : MonoBehaviour
 {
-    public enum Type { Enemy, Player, Boss}
+    public enum Type { Enemy, Player, Boss, EnemyWithAttack}
     public Type type;
     public GameObject healthPopup;
     public int health = 30;
@@ -24,10 +24,10 @@ public class HealthManager : MonoBehaviour
     {
         switch (type)
         {
+            case Type.EnemyWithAttack:
             case Type.Enemy:
             case Type.Boss:
                 ani = GetComponent<Animator>();
-                
                 maxHealth = GetComponent<Enemy>().enemy.maxHealth;
                 health = maxHealth;
                 break;
@@ -58,6 +58,9 @@ public class HealthManager : MonoBehaviour
             case Type.Boss:
                 TakeDamageBoss(damage);
                 break;
+            case Type.EnemyWithAttack:
+                TakeDamageEnemyWithAttack(damage);
+                break;
         }
         
     }
@@ -86,7 +89,8 @@ public class HealthManager : MonoBehaviour
         {
             isLive = false;
             UnEnableEnemy();
-            int deadNumber= FindObjectOfType<SpawnEnemy>().enemyDead++;
+            FindObjectOfType<SpawnEnemy>().enemyDead++;
+            FindObjectOfType<SpawnEnemy>().StartNextWave();
             GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().LevelUp(GetComponent<Enemy>().enemy.getExp);
         }
     }
@@ -95,14 +99,27 @@ public class HealthManager : MonoBehaviour
     {
         health -= damage;
         if (health == 0) health = -1;
-        
+        if (health < 0)
+        {
+            ani.SetTrigger("Dead");
+            isLive = false;
+            UnEnableEnemy();
+            //FindObjectOfType<SpawnEnemy>().enemyDead++;
+            Invoke("WinCanvas", 1f);
+        }
+    }
+    public void TakeDamageEnemyWithAttack(int damage)
+    {
+        health -= damage;
+        if (health == 0) health = -1;
         if (health < 0)
         {
             ani.SetTrigger("Dead");
             isLive = false;
             UnEnableEnemy();
             FindObjectOfType<SpawnEnemy>().enemyDead++;
-            Invoke("WinCanvas", 1f);
+            FindObjectOfType<SpawnEnemy>().StartNextWave();
+            GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().LevelUp(GetComponent<Enemy>().enemy.getExp);
         }
     }
 
@@ -112,7 +129,8 @@ public class HealthManager : MonoBehaviour
     }
     public void UnEnableEnemy()
     {
-        GetComponent<Collider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
         
     }
     public void NotActiveEnemy()
