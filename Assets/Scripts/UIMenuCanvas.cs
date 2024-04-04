@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIMenuCanvas : MonoBehaviour
 {
@@ -25,4 +26,5 @@ public class UIMenuCanvas : MonoBehaviour
         weaponName.GetComponent<TextMeshProUGUI>().text = GameManager.instance.weaponChosen[0].weaponName;
         weaponSprite.sprite = GameManager.instance.weaponChosen[0].weaponSprite;
     }
+
 }

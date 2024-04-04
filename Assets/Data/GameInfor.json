@@ -1,5 +1,5 @@
 {
-    "isMuteMusic": false,
-    "isMuteSFX": false,
-    "volumn": 0.6598285436630249
+    "isMuteMusic": true,
+    "isMuteSFX": true,
+    "volumn": 1.0
 }

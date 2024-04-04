@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;
 
 
-
+    [Header("# In Game")]
+    public int killed;
 
 
     private void Awake()

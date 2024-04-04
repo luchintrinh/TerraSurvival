@@ -1378,6 +1378,10 @@ PrefabInstance:
       propertyPath: shakeIntensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3938982174805157462, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5238782285977235113, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1465,6 +1469,10 @@ PrefabInstance:
     - target: {fileID: 8488121757386086200, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8901467231224816102, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5817230277322906028, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
@@ -2844,7 +2852,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 706622879}
   m_HandleRect: {fileID: 0}

@@ -29,4 +29,8 @@ public class WeaponObject : ScriptableObject
     [Header("# bullets ")]
     public int bulletPoolIndex;
     public int bulletStrengthenPoolIndex;
+
+    [Header("# Lock")]
+    public bool isLock;
+    public int price;
 }

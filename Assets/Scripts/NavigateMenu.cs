@@ -55,6 +55,16 @@ public class NavigateMenu : MonoBehaviour
         chooseCharacter.DOAnchorPos(initialPosChooseCharacter-jumpSpace*2, 1, false);
         chooseWeapon.DOAnchorPos(initialPosChooseWeapon - jumpSpace * 2, 1, false);
     }
+
+    public void ChooseShopScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void ChooseProgressScene()
+    {
+        SceneManager.LoadScene(3);
+        
+    }
     public void StartPlay()
     {
         SceneManager.LoadScene(1);

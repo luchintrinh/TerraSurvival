@@ -65,25 +65,30 @@ public class SpawnEnemy : MonoBehaviour
             {
                 if (preEnemy == null)
                 {
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(1f); 
                 }
                 else
                 {
                     yield return new WaitForSeconds(preEnemy.GetComponent<Enemy>().timeSpawnDelay);
                 }
 
-                int enemyID = Random.Range(2, wave+3);
-                int enemySpawnPoint = Random.Range(0, pointSpawn.Length-1);
+                
+                int enemyID = Random.Range(2, wave + 3);
+                int enemySpawnPoint = Random.Range(0, pointSpawn.Length - 1);
                 GameObject enemy = GameManager.instance.pool.Get(enemyID);
                 enemy.GetComponent<Enemy>().SetProperty(waveCooldownPercentAllProperty[wave]);
                 preEnemy = enemy;
                 enemy.transform.position = pointSpawn[enemySpawnPoint].position;
                 enemyCount++;
+                
             }
     }
     public void BossSpawn()
     {
-        GameObject enemy = GameManager.instance.pool.Get(8);
-        enemy.transform.position = pointSpawn[4].position;
+        if (wave == waveNumber && enemyDead==enemiesOfWave[wave])
+        {
+            GameObject enemy = GameManager.instance.pool.Get(8);
+            enemy.transform.position = pointSpawn[4].position;
+        }
     }
 }

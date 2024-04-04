@@ -20,6 +20,10 @@ public class Player : ScriptableObject
 
     public Sprite playerSprite;
 
+    [Header("# Lock")]
+    public bool isLock;
+    public int price;
+
 
     
 

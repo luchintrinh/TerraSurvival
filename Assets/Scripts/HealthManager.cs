@@ -90,8 +90,10 @@ public class HealthManager : MonoBehaviour
             isLive = false;
             UnEnableEnemy();
             FindObjectOfType<SpawnEnemy>().enemyDead++;
+            GameManager.instance.killed = FindObjectOfType<SpawnEnemy>().enemyDead;
             FindObjectOfType<SpawnEnemy>().StartNextWave();
             GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().LevelUp(GetComponent<Enemy>().enemy.getExp);
+            FindObjectOfType<SpawnEnemy>().BossSpawn();
         }
     }
 
@@ -118,6 +120,7 @@ public class HealthManager : MonoBehaviour
             isLive = false;
             UnEnableEnemy();
             FindObjectOfType<SpawnEnemy>().enemyDead++;
+            GameManager.instance.killed = FindObjectOfType<SpawnEnemy>().enemyDead;
             FindObjectOfType<SpawnEnemy>().StartNextWave();
             GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().LevelUp(GetComponent<Enemy>().enemy.getExp);
         }

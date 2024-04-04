@@ -31,3 +31,4 @@ MonoBehaviour:
   weaponAni: {fileID: 0}
   bulletPoolIndex: 0
   bulletStrengthenPoolIndex: 9
+  isLock: 1
