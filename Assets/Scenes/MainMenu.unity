@@ -1540,17 +1540,89 @@ MonoBehaviour:
   playerChosen: []
   weaponChosen: []
   levels: 0a0000001e0000003c0000006400000096000000c8000000040100004001000090010000f40100005802000020030000
-  playerInfo: {fileID: 11400000, guid: 3f71eb94f13267346a9bfd00a07f3c28, type: 2}
+  playerInfo:
+    namePlayer: 
+    description: 
+    baseSpeed: 0
+    baseMaxHealth: 0
+    baseHealth: 0
+    basePhysicDamage: 0
+    baseMagicalDamage: 0
+    playerAniStr: 
+    playerSpriteName: 
+    isLock: 0
+    price: 0
   characters:
-  - {fileID: 11400000, guid: 3f71eb94f13267346a9bfd00a07f3c28, type: 2}
+  - namePlayer: Khan
+    description: 
+    baseSpeed: 5
+    baseMaxHealth: 100
+    baseHealth: 100
+    basePhysicDamage: 10
+    baseMagicalDamage: 0
+    playerAniStr: Player
+    playerSpriteName: khan
+    isLock: 1
+    price: 0
+  - namePlayer: Kho
+    description: 
+    baseSpeed: 5
+    baseMaxHealth: 120
+    baseHealth: 120
+    basePhysicDamage: 10
+    baseMagicalDamage: 0
+    playerAniStr: Player
+    playerSpriteName: kho
+    isLock: 1
+    price: 50
   weapons:
-  - {fileID: 11400000, guid: 9b28dd7b99cb521458240077516d637e, type: 2}
-  - {fileID: 11400000, guid: 36c9e3d973a395e4eba35058e8128923, type: 2}
-  - {fileID: 11400000, guid: 29bc1a9234f665648a7ebdf8f68a9f25, type: 2}
+  - isGun: 1
+    weaponName: Red Gun
+    description: 
+    bonusPhysicDamage: 3
+    bonusMagicalDamage: 0
+    explosionDamage: 10
+    explosionRange: 2
+    strengthenDamage: 30
+    bonusMaxHealth: 30
+    bonusArmor: 0
+    bonusMoveSpeed: 1
+    attackDelay: 0.3
+    attackDelayUltimate: 4
+    forceBack: 0.6
+    attackRange: 10
+    weaponSpriteName: red_gun
+    weaponAniStr: 
+    bulletPoolIndex: 0
+    bulletStrengthenPoolIndex: 9
+    isLock: 1
+    price: 0
+  - isGun: 1
+    weaponName: Yellow Gun
+    description: 
+    bonusPhysicDamage: 10
+    bonusMagicalDamage: 0
+    explosionDamage: 20
+    explosionRange: 2
+    strengthenDamage: 5
+    bonusMaxHealth: 20
+    bonusArmor: 0
+    bonusMoveSpeed: 2
+    attackDelay: 0.3
+    attackDelayUltimate: 4
+    forceBack: 0.7
+    attackRange: 10
+    weaponSpriteName: yellow_gun
+    weaponAniStr: 
+    bulletPoolIndex: 0
+    bulletStrengthenPoolIndex: 9
+    isLock: 1
+    price: 0
   direction: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0, z: 0}
   nearestEnemyPos: {fileID: 0}
   pool: {fileID: 0}
+  poolUI: {fileID: 0}
   killed: 0
 --- !u!114 &259442923
 MonoBehaviour:
@@ -1579,9 +1651,21 @@ MonoBehaviour:
   achievementPrefab: {fileID: 262911953588296594, guid: 5649a91c6928cf446825a514da21683d, type: 3}
   listView: {fileID: 0}
   achievements:
-  - {fileID: 11400000, guid: a9483aa369e78ab4aafcfb7ac3374373, type: 2}
-  - {fileID: 11400000, guid: a4a7228174c22c34f940f0e480a5248a, type: 2}
-  - {fileID: 11400000, guid: c8d7968ad9262a944957aa7793d39932, type: 2}
+  - type: 0
+    achievementName: "\u0110\xE1nh b\u1EA1i 20 qu\xE1i"
+    spriteName: danh_bai_20_quai
+    isAchieved: 0
+    goal: 20
+  - type: 0
+    achievementName: "\u0110\xE1nh b\u1EA1i 50 qu\xE1i"
+    spriteName: danh_bai_50_quai
+    isAchieved: 0
+    goal: 50
+  - type: 0
+    achievementName: "\u0110\xE1nh b\u1EA1i 150 qu\xE1i"
+    spriteName: danh_bai_150_quai
+    isAchieved: 0
+    goal: 150
 --- !u!1 &262049161
 GameObject:
   m_ObjectHideFlags: 0
@@ -6911,8 +6995,6 @@ MonoBehaviour:
   playerChooseTurn: 0
   containerCharacter: {fileID: 2086699420}
   containerWeapon: {fileID: 1264811262}
-  playerList: []
-  weaponList: []
   item: {fileID: 3791592428503410581, guid: 295faa33a09ddd04ea1b06f13348b2e6, type: 3}
 --- !u!1 &1541224906
 GameObject:

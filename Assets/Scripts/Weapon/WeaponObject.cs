@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New weapon", menuName ="new Weapon")]
-public class WeaponObject : ScriptableObject
+[System.Serializable]
+public class WeaponObject
 {
     [Header("# IsGun")]
     public bool isGun;
@@ -23,8 +23,8 @@ public class WeaponObject : ScriptableObject
     public float attackRange;
 
     [Header("# Weapon")]
-    public Sprite weaponSprite;
-    public RuntimeAnimatorController weaponAni;
+    public string weaponSpriteName;
+    public string weaponAniStr;
 
     [Header("# bullets ")]
     public int bulletPoolIndex;

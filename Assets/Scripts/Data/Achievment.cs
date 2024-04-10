@@ -1,26 +1,13 @@
 
-using System;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName ="new Achievement", menuName ="new Achievemnt")]
-public class Achievement: ScriptableObject
+[System.Serializable]
+public class Achievement
 {
     public enum Type { killed, survival }
     public Type type;
     public string achievementName;
-    public Sprite sprite;
+    public string spriteName;
     public bool isAchieved;
     public int goal;
-
-    public void SetAchievement(int goalSuccess)
-    {
-        if (isAchieved) return;
-        if (goal <= goalSuccess)
-        {
-            Debug.Log(achievementName + " Success");
-            isAchieved = true;
-            FindObjectOfType<AchievementManagement>().SaveAchievement();
-        }
-    }
 }

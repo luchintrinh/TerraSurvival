@@ -16,7 +16,8 @@ MonoBehaviour:
   description: sdfsdf
   health: 20
   maxHealth: 20
-  damage: 1
+  damage: 5
   speed: 4
-  spawnDelayTime: 2
+  spawnDelayTime: 0.5
+  attackRange: 0
   getExp: 5

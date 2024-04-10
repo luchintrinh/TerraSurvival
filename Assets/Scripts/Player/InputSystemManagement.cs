@@ -64,6 +64,31 @@ public class InputSystemManagement : MonoBehaviour
     }
 
 
+    // tab
+    public void OnShowSkillUpgraded(InputAction.CallbackContext context)
+    {
+        GameObject view = GetComponent<LevelUpPlayer>().listViewSkillsUpgraded;
+        if (context.started)
+        {
+            view.SetActive(true);
+        }
+        else if (context.canceled)
+        {
+            view.SetActive(false);
+        }
+    }
+
+    //Dash
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (!GetComponent<SkillMaxUpgraded>().isSkillDashUnlock) return;
+            if (!GetComponent<SkillMaxUpgraded>().isReadyDash) return;
+            GetComponent<SkillMaxUpgraded>().MaxLevelMoveSpeed();
+        }
+    }
+
     public void OnDirectionWeaponJoystick(InputAction.CallbackContext context)
     {
         if (GameManager.instance.isPause || !health.isLive) return;
@@ -78,7 +103,7 @@ public class InputSystemManagement : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (!health.isLive) return;
+        if (!health.isLive || GameManager.instance.isPause) return;
         if (context.started)
         {
             isFirePressed = true;

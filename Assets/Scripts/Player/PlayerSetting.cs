@@ -26,10 +26,9 @@ public class PlayerSetting : MonoBehaviour
     public int level;
     public int exp;
 
-    public float timeTakeDamage=0.3f;
 
 
-    Coroutine takeDamage;
+    
 
     private void Awake()
     {
@@ -123,40 +122,15 @@ public class PlayerSetting : MonoBehaviour
     {
         if (!weapon.isGun)
         {
-            transform.GetChild(2).GetComponent<Animator>().runtimeAnimatorController = weapon.weaponAni;
+            transform.GetChild(2).GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Animations/Player/{weapon.weaponAniStr}");
         }
         else
         {
             transform.GetChild(2).GetComponent<Animator>().enabled = false;
             transform.GetChild(2).localPosition = new Vector3(0, -0.3f, 0);
         }
-        transform.GetChild(0).GetComponent<Animator>().runtimeAnimatorController = player.playerAni;
-        transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = weapon.weaponSprite;
+        transform.GetChild(0).GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Animations/Player/{player.playerAniStr}");
+        transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>($"Sprites/Weapon/{weapon.weaponSpriteName}");
     }
-    
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!GetComponent<HealthManager>().isLive || !collision.CompareTag("Enemy")) return;
-        if (takeDamage == null)
-        takeDamage= StartCoroutine(TakeDamage(collision));
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Enemy")) return;
-        if (takeDamage != null) StopCoroutine(takeDamage);
-        takeDamage = null;
-    }
-
-
-    IEnumerator TakeDamage(Collider2D collision)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(timeTakeDamage);
-            GetComponent<HealthManager>().TakeDamage(collision.GetComponent<Enemy>().attackDamage);
-        }
-        
-    }
+   
 }

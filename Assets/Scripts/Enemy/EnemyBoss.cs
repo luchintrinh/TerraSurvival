@@ -1,42 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBoss : MonoBehaviour
 {
-    public bool isAttack;
-    public bool isReadyAttack;
-    Animator ani;
-    Enemy enemy;
-
-
-    public float delayAttackTime;
-    float nextTime=0;
-    
-
+    Slider slider;
+    HealthManager health;
+    private void Awake()
+    {
+        slider = transform.Find("Canvas").GetChild(0).GetComponent<Slider>();
+        health = GetComponent<HealthManager>();
+    }
     private void Start()
     {
-        ani = GetComponent<Animator>();
-        isAttack = false;
-        enemy = GetComponent<Enemy>();
-        delayAttackTime = enemy.enemy.spawnDelayTime;
+        slider.maxValue = health.maxHealth;
+        slider.minValue = 0;
+        slider.value = health.maxHealth;
+        Sethealth();
     }
 
-    private void Update()
+    public void Sethealth()
     {
-        Attack();
-    }
-
-    public void Attack()
-    {
-        isReadyAttack = isAttack && Time.time >= nextTime;
-        if (!isReadyAttack) return;
-        ani.SetTrigger("Attack"); 
-        nextTime += delayAttackTime;
-    }
-
-    public void CheckAbleToAttackIndicator()
-    {
-        GetComponentInChildren<EnemyCircleIndicatorAttack>().AbleIndicator(false);
+        slider.value = health.health;
     }
 }

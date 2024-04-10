@@ -9,15 +9,6 @@ public class JsonUtilityReadWrite : MonoBehaviour
     {
         sound = FindObjectOfType<SoundManager>();
     }
-    public void SaveToJson()
-    {
-        GameInfor game = new GameInfor();
-        game.isMuteMusic= sound.muteMusic;
-        game.isMuteSFX= sound.muteSFX;
-        game.volumn = sound.volume;
-        string json = JsonUtility.ToJson(game,true);
-        File.WriteAllText(Application.dataPath + "/Data/GameInfor.json", json);
-    }
     public void LoadJson()
     {
         string jsonFilePath = Application.dataPath + "/Data/GameInfor.json";
@@ -36,15 +27,47 @@ public class JsonUtilityReadWrite : MonoBehaviour
         string json = PlayerPrefs.GetString(nameSaved);
         return json;
     }
-    public void SaveToJsonUtility(GameItem game,string nameSaved)
+    public void SaveToJsonUtility(Achievement[] game,string nameSaved)
     {
         string json = JsonUtility.ToJson(game, true);
+        PlayerPrefs.SetString(nameSaved, json);
+        PlayerPrefs.Save();
+    }
+    public void SaveToJsonUtility(GameInfor game, string nameSaved)
+    {
+        string json = JsonUtility.ToJson(game, true);
+        PlayerPrefs.SetString(nameSaved, json);
+        PlayerPrefs.Save();
+    }
+    public void SaveToJsonUtility(GameItem game, string nameSaved)
+    {
+        string json = JsonUtility.ToJson(game, true);
+        File.WriteAllText(Application.dataPath + "/Data/GameItem.json", json);
         PlayerPrefs.SetString(nameSaved, json);
         PlayerPrefs.Save();
     }
     public void SaveToJsonUtility(AchievementStore game, string nameSaved)
     {
         string json = JsonUtility.ToJson(game, true);
+        PlayerPrefs.SetString(nameSaved, json);
+        PlayerPrefs.Save();
+    }
+    public void SaveToJsonUtility(GamePlay game, string nameSaved)
+    {
+        string json = JsonUtility.ToJson(game, true);
+        PlayerPrefs.SetString(nameSaved, json);
+        PlayerPrefs.Save();
+    }
+    public void SaveToJsonUtility(Player[] game, string nameSaved)
+    {
+        //string json = JsonUtility.ToJson(game);
+        string json = JsonHelper.ToJson(game, true);
+        foreach (Player i in game)
+        {
+            Debug.Log(i.namePlayer);
+        }
+        Debug.Log(json);
+        File.WriteAllText(Application.dataPath + $"/Data/{nameSaved}.json", json);
         PlayerPrefs.SetString(nameSaved, json);
         PlayerPrefs.Save();
     }

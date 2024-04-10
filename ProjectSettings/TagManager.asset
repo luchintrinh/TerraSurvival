@@ -11,6 +11,8 @@ TagManager:
   - Confiner
   - EBullet
   - Trigger
+  - EnemyWeapon
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -62,6 +64,9 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 3198896995
+    locked: 0
+  - name: Item
+    uniqueID: 2913060689
     locked: 0
   - name: Player
     uniqueID: 494021101

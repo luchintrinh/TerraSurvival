@@ -22,11 +22,18 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject poolObject;
     [SerializeField] Transform firePoint;
 
+    [Header("# Number Attack")]
+    private int numberAttack = 1;
+    public int NumberAttack { get => numberAttack; set => numberAttack = value; }
+
+
 
 
 
     //SFX sounds
     SoundManager sfx;
+
+    
 
     private void Awake()
     {
@@ -147,6 +154,7 @@ public class Weapon : MonoBehaviour
             GameObject muzzle_flash = Instantiate(muzzleFlash, transform.GetChild(0).transform);
             GameObject bullet = GameManager.instance.pool.Get(GetComponentInParent<PlayerSetting>().weapon.bulletPoolIndex);
             bullet.GetComponent<Bullet>().initialPos = transform.parent.transform.position;
+            bullet.GetComponent<Bullet>().EnemyNumberAttack = numberAttack;
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90);
             bullet.GetComponent<Bullet>().Init(transform.parent.GetComponent<PlayerSetting>().physicDamage, dir);

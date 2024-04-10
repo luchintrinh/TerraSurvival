@@ -15,13 +15,6 @@ public class EnemyCircleIndicatorAttack : MonoBehaviour
         boss = GetComponentInParent<EnemyBoss>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player")) return;
-        boss.isAttack = true;
-        AbleIndicator(true);
-    }
-
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -35,10 +28,6 @@ public class EnemyCircleIndicatorAttack : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        if (!collision.CompareTag("Player")) return;
-        boss.isAttack = false;
-        AbleIndicator(false);
         
     }
 

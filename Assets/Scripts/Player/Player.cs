@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Player", menuName ="New player")]
-public class Player : ScriptableObject
+
+
+
+[System.Serializable]
+public class Player 
 {
-    [Header("# Property")]
+    
+    //[Header("# Property")]
     public string namePlayer;
     public string description;
     public float baseSpeed;
@@ -13,18 +14,14 @@ public class Player : ScriptableObject
     public int baseHealth;
     public int basePhysicDamage;
     public int baseMagicalDamage;
-    [Header("# Player Animator")]
-    public RuntimeAnimatorController playerAni;
+    //[Header("# Player Animator")]
+    public string playerAniStr;
 
-    [Header("# Sprites")]
+    //[Header("# Sprites")]
 
-    public Sprite playerSprite;
+    public string playerSpriteName;
 
-    [Header("# Lock")]
+    //[Header("# Lock")]
     public bool isLock;
     public int price;
-
-
-    
-
 }

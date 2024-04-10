@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: CoolDownNormalAttack
   m_EditorClassIdentifier: 
   id: 2
+  level: 0
   nameSkill: CoolDown Normal
   description: Decrease time to attack cooldown
   ratio: 2
   sprite: {fileID: 21300062, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  weaponMaxHeath: {fileID: 0}

@@ -89,6 +89,24 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShowSkillUpgraded"",
+                    ""type"": ""Button"",
+                    ""id"": ""10242547-bb9e-4f4f-adbc-b0cff4fad002"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9fa5b32-6a32-4c7d-9dc9-c8483d129df6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -375,6 +393,28 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a2037f8-41c2-4ab8-b7ae-5e25dadbe1d6"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowSkillUpgraded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3389fd1-57dd-4637-bfa0-020ff3d27c43"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -969,6 +1009,8 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
         m_Player_UltimateSkill = m_Player.FindAction("UltimateSkill", throwIfNotFound: true);
         m_Player_DirectionWeaponJoystick = m_Player.FindAction("DirectionWeaponJoystick", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_ShowSkillUpgraded = m_Player.FindAction("ShowSkillUpgraded", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1049,6 +1091,8 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_UltimateSkill;
     private readonly InputAction m_Player_DirectionWeaponJoystick;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_ShowSkillUpgraded;
+    private readonly InputAction m_Player_Dash;
     public struct PlayerActions
     {
         private @TerraSurvival m_Wrapper;
@@ -1060,6 +1104,8 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
         public InputAction @UltimateSkill => m_Wrapper.m_Player_UltimateSkill;
         public InputAction @DirectionWeaponJoystick => m_Wrapper.m_Player_DirectionWeaponJoystick;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @ShowSkillUpgraded => m_Wrapper.m_Player_ShowSkillUpgraded;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1090,6 +1136,12 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @ShowSkillUpgraded.started += instance.OnShowSkillUpgraded;
+            @ShowSkillUpgraded.performed += instance.OnShowSkillUpgraded;
+            @ShowSkillUpgraded.canceled += instance.OnShowSkillUpgraded;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1115,6 +1167,12 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @ShowSkillUpgraded.started -= instance.OnShowSkillUpgraded;
+            @ShowSkillUpgraded.performed -= instance.OnShowSkillUpgraded;
+            @ShowSkillUpgraded.canceled -= instance.OnShowSkillUpgraded;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1304,6 +1362,8 @@ public partial class @TerraSurvival: IInputActionCollection2, IDisposable
         void OnUltimateSkill(InputAction.CallbackContext context);
         void OnDirectionWeaponJoystick(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnShowSkillUpgraded(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

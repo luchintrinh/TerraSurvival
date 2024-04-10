@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,10 +18,17 @@ public class Bullet : MonoBehaviour
     public float attackRange;
     LayerMask attackLayerMask;
 
+    // Kiểm tra số lần va chạm với quái để hủy đạn.
+    private int enemyNumberAttack=1;
+    public int EnemyNumberAttack { get => enemyNumberAttack; set => enemyNumberAttack = value; }
+    private int number = 0;
+
 
     //SFX sounds
 
     SoundManager sfx;
+
+    
 
     private void Awake()
     {
@@ -85,12 +92,24 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Bullet")|| collision.CompareTag("Indicator") || collision.CompareTag("Confiner") || collision.CompareTag("Trigger")) return;
+        if (collision.CompareTag("Player") || collision.CompareTag("Bullet")|| collision.CompareTag("Indicator") || collision.CompareTag("Confiner") || collision.CompareTag("Trigger") || collision.CompareTag("Item")) return;
         switch (type)
         {
             case BulletType.normal:
-                ani.SetTrigger("Hit");
-                StopMove();
+                if (collision.CompareTag("Enemy"))
+                {
+                    number++;
+                    if (number == enemyNumberAttack)
+                    {
+                        AttackBehavior();
+                        number = 0;
+                    }
+                }
+                else
+                {
+                    AttackBehavior();
+                    number = 0;
+                }
                 break;
             case BulletType.strengthen:
                 Explosion();
@@ -99,6 +118,13 @@ public class Bullet : MonoBehaviour
         }
         
     }
+
+    private void AttackBehavior()
+    {
+        ani.SetTrigger("Hit");
+        StopMove();
+    }
+
     public void Init(int damage, Vector2 dir)
     {
         this.damage = damage;

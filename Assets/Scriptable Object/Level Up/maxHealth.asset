@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: maxHealth
   m_EditorClassIdentifier: 
   id: 5
+  level: 5
   nameSkill: Max Health
   description: increase max health
   ratio: 2
   sprite: {fileID: 21300040, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  weaponMaxHeath: {fileID: 4337017150346946184, guid: 6801380ad63bb4a459053e3935a6d645, type: 3}

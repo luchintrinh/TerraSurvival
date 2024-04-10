@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
         sprite.flipX = transform.position.x < GetComponent<FindNearest>().FindPlayer().position.x ? false : true;
     }
 
-    Vector3 GetDirection(Vector3 target, Vector3 myPos)
+    public Vector3 GetDirection(Vector3 target, Vector3 myPos)
     {
         Vector3 dir = target - myPos;
         dir = dir.normalized;
@@ -93,6 +93,7 @@ public class Enemy : MonoBehaviour
         WasAttacked(dir, force);
         GetComponent<HealthManager>().TakeDamage(GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().physicDamage);
     }
+    
     
     public void WasAttacked(Vector3 dir, float forceBack)
     {
@@ -112,6 +113,21 @@ public class Enemy : MonoBehaviour
         moveSpeed = enemy.speed + (moveSpeed * percent) / 100;
         timeSpawnDelay = enemy.spawnDelayTime - (timeSpawnDelay * percent) / 100;
         attackDamage = enemy.damage + (attackDamage * percent) / 100;
+    }
+
+    public void randomItem()
+    {
+        int num = Random.Range(0, 10);
+        if (num == 0)
+        {
+            GameObject item = GameManager.instance.pool.Get(12);
+            item.transform.position = gameObject.transform.position;
+        }
+        else if(num==1 || num==2|| num==3|| num==4)
+        {
+            GameObject item = GameManager.instance.pool.Get(13);
+            item.transform.position = gameObject.transform.position;
+        }
     }
 
 }

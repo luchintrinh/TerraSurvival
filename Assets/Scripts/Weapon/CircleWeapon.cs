@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CircleWeapon : MonoBehaviour
 {
-    [SerializeField] GameObject weaponPrefab;
-    [SerializeField] int number;
-    [SerializeField] float speed=5f;
+    public GameObject weaponPrefab;
+    [SerializeField] int number=6;
+    [SerializeField] float speed=150f;
     [SerializeField] float rangeWeapon=2f;
+    public int damage = 5;
 
     private void Start()
     {

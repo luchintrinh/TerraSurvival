@@ -1,0 +1,78 @@
+{
+    "playerList": [
+        {
+            "namePlayer": "Khan",
+            "description": "",
+            "baseSpeed": 5.0,
+            "baseMaxHealth": 100,
+            "baseHealth": 100,
+            "basePhysicDamage": 10,
+            "baseMagicalDamage": 0,
+            "playerAniStr": "Player",
+            "playerSpriteName": "khan",
+            "isLock": false,
+            "price": 0
+        },
+        {
+            "namePlayer": "Kho",
+            "description": "",
+            "baseSpeed": 5.0,
+            "baseMaxHealth": 120,
+            "baseHealth": 120,
+            "basePhysicDamage": 10,
+            "baseMagicalDamage": 0,
+            "playerAniStr": "Player",
+            "playerSpriteName": "kho",
+            "isLock": false,
+            "price": 50
+        }
+    ],
+    "weaponList": [
+        {
+            "isGun": true,
+            "weaponName": "Red Gun",
+            "description": "",
+            "bonusPhysicDamage": 3,
+            "bonusMagicalDamage": 0,
+            "explosionDamage": 10,
+            "explosionRange": 2.0,
+            "strengthenDamage": 30,
+            "bonusMaxHealth": 30,
+            "bonusArmor": 0.0,
+            "bonusMoveSpeed": 1.0,
+            "attackDelay": 0.30000001192092898,
+            "attackDelayUltimate": 4.0,
+            "forceBack": 0.6000000238418579,
+            "attackRange": 10.0,
+            "weaponSpriteName": "red_gun",
+            "weaponAniStr": "",
+            "bulletPoolIndex": 0,
+            "bulletStrengthenPoolIndex": 9,
+            "isLock": false,
+            "price": 0
+        },
+        {
+            "isGun": true,
+            "weaponName": "Yellow Gun",
+            "description": "",
+            "bonusPhysicDamage": 10,
+            "bonusMagicalDamage": 0,
+            "explosionDamage": 20,
+            "explosionRange": 2.0,
+            "strengthenDamage": 5,
+            "bonusMaxHealth": 20,
+            "bonusArmor": 0.0,
+            "bonusMoveSpeed": 2.0,
+            "attackDelay": 0.30000001192092898,
+            "attackDelayUltimate": 4.0,
+            "forceBack": 0.699999988079071,
+            "attackRange": 10.0,
+            "weaponSpriteName": "yellow_gun",
+            "weaponAniStr": "",
+            "bulletPoolIndex": 0,
+            "bulletStrengthenPoolIndex": 9,
+            "isLock": false,
+            "price": 0
+        }
+    ]
+}

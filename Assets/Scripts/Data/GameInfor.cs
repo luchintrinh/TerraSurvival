@@ -6,4 +6,5 @@ public class GameInfor
     public bool isMuteMusic;
     public bool isMuteSFX;
     public float volumn;
+    public int aimingStyle;
 }
