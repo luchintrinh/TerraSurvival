@@ -39,7 +39,13 @@ public class UIShopCanvas : MonoBehaviour
     [Header("# Price")]
     [SerializeField] TextMeshProUGUI priceText;
 
-    
+
+    // Display property
+    [SerializeField] Slider damageUI;
+    [SerializeField] Slider speedUI;
+    [SerializeField] Slider healthUI;
+    [SerializeField] Slider rangeUI;
+ 
 
     private void Awake()
     {
@@ -169,6 +175,7 @@ public class UIShopCanvas : MonoBehaviour
                 itemDetailPopup.SetActive(true);
                 itemSprite.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Player/{playerStore[i].playerSpriteName}");
                 nameText.GetComponent<TextMeshProUGUI>().text = playerStore[i].namePlayer;
+                DisplayPropertyPlayer(playerStore[i]);
                 priceText.GetComponent<TextMeshProUGUI>().text = playerStore[i].price.ToString();
                 itemDetailPopup.transform.GetChild(2).GetChild(1).GetComponent<Button>().onClick.AddListener(() => OnClickBuyAndExit(i));
                 if (Coin < playerStore[i].price)
@@ -237,5 +244,21 @@ public class UIShopCanvas : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void DisplayPropertyPlayer(Player player)
+    {
+        SetValueSlider(player.baseHealth, player.maxHealthValue, healthUI);
+        SetValueSlider(player.basePhysicDamage, player.maxDamage, damageUI);
+        SetValueSlider(player.baseSpeed, player.maxSpeed, speedUI);
+    }
+    public void SetValueSlider(int value, int maxValue, Slider slider)
+    {
+        slider.GetComponent<Slider>().value = value;
+        slider.GetComponent<Slider>().maxValue = maxValue;
+    }
+    public void SetValueSlider(float value, float maxValue, Slider slider)
+    {
+        slider.GetComponent<Slider>().value = value;
+        slider.GetComponent<Slider>().maxValue = maxValue;
     }
 }

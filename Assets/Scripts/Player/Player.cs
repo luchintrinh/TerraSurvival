@@ -1,11 +1,13 @@
 
-
-
+using UnityEngine;
 
 [System.Serializable]
 public class Player 
 {
-    
+    public int maxHealthValue;
+    public float maxRange;
+    public int maxDamage;
+    public float maxSpeed;
     //[Header("# Property")]
     public string namePlayer;
     public string description;

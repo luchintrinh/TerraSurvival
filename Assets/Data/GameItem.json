@@ -1,6 +1,10 @@
 {
     "playerList": [
         {
+            "maxHealthValue": 150,
+            "maxRange": 15.0,
+            "maxDamage": 20,
+            "maxSpeed": 15.0,
             "namePlayer": "Khan",
             "description": "",
             "baseSpeed": 5.0,
@@ -10,10 +14,14 @@
             "baseMagicalDamage": 0,
             "playerAniStr": "Player",
             "playerSpriteName": "khan",
-            "isLock": false,
+            "isLock": true,
             "price": 0
         },
         {
+            "maxHealthValue": 150,
+            "maxRange": 15.0,
+            "maxDamage": 20,
+            "maxSpeed": 15.0,
             "namePlayer": "Kho",
             "description": "",
             "baseSpeed": 5.0,
@@ -23,7 +31,7 @@
             "baseMagicalDamage": 0,
             "playerAniStr": "Player",
             "playerSpriteName": "kho",
-            "isLock": false,
+            "isLock": true,
             "price": 50
         }
     ],
@@ -48,7 +56,7 @@
             "weaponAniStr": "",
             "bulletPoolIndex": 0,
             "bulletStrengthenPoolIndex": 9,
-            "isLock": false,
+            "isLock": true,
             "price": 0
         },
         {
@@ -71,7 +79,7 @@
             "weaponAniStr": "",
             "bulletPoolIndex": 0,
             "bulletStrengthenPoolIndex": 9,
-            "isLock": false,
+            "isLock": true,
             "price": 0
         }
     ]
