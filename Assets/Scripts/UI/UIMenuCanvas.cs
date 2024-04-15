@@ -18,9 +18,9 @@ public class UIMenuCanvas : MonoBehaviour
     public void SetProperty()
     {
         characterName.GetComponent<TextMeshProUGUI>().text = GameManager.instance.playerChosen[0].namePlayer;
-        characterSprite.sprite = Resources.Load<Sprite>($"/Sprite/Player/{GameManager.instance.playerChosen[0].playerSpriteName}");
+        characterSprite.sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[GameManager.instance.playerChosen[0].spriteIndex];
         weaponName.GetComponent<TextMeshProUGUI>().text = GameManager.instance.weaponChosen[0].weaponName;
-        weaponSprite.sprite = Resources.Load<Sprite>($"Sprites/Weapon/{GameManager.instance.weaponChosen[0].weaponSpriteName}");
+        weaponSprite.sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[GameManager.instance.weaponChosen[0].spriteIndex];
     }
 
 }

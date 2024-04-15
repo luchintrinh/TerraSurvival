@@ -14,6 +14,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField] GameObject winCanvas;
     [SerializeField] GameObject lossCanvas;
     [SerializeField] GameObject UILevelUp;
+    public GameObject propertyPopup;
 
     [SerializeField] Slider healthSlider;
 
@@ -67,12 +68,14 @@ public class UIManagement : MonoBehaviour
     {
         Time.timeScale = 0;
         UILevelUp.gameObject.SetActive(true);
+        propertyPopup.SetActive(true);
     }
 
     public void CloseLevelUp()
     {
         Time.timeScale = 1;
         UILevelUp.gameObject.SetActive(false);
+        propertyPopup.SetActive(false);
     }
 
     public void WinCanvas()

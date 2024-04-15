@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSetting : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class PlayerSetting : MonoBehaviour
     public WeaponObject weapon;
 
     public int physicDamage;
-    public int mageDamage;
     public float moveSpeed;
     public int maxHealth;
     public int explosionDamage;
@@ -38,11 +38,12 @@ public class PlayerSetting : MonoBehaviour
         InitPlayer();
         level = 1;
     }
+    
+    
 
     private void InitPlayer()
     {
         physicDamage = player.basePhysicDamage + weapon.bonusPhysicDamage;
-        mageDamage = player.baseMagicalDamage + weapon.bonusMagicalDamage;
         moveSpeed = player.baseSpeed + weapon.bonusMoveSpeed;
         maxHealth = player.baseMaxHealth + weapon.bonusMaxHealth;
         explosionDamage = weapon.explosionDamage;
@@ -110,6 +111,7 @@ public class PlayerSetting : MonoBehaviour
 
     public void OpenLevelUpUI()
     {
+        FindObjectOfType<UIPauseGame>().PauseGame();
         FindObjectOfType<UIManagement>().LevelUp();
         GetComponent<LevelUpPlayer>().LevelUpShowUp();
     }
@@ -117,6 +119,7 @@ public class PlayerSetting : MonoBehaviour
     private void Start()
     {   
         Init();
+        FindObjectOfType<UIDisplayPlayerProperty>().SetListValuePlayerDetail(physicDamage, moveSpeed, maxHealth, attackRange, explosionRange, attackDelay, attackDelayUltimate);
     }
     void Init()
     {
@@ -130,7 +133,7 @@ public class PlayerSetting : MonoBehaviour
             transform.GetChild(2).localPosition = new Vector3(0, -0.3f, 0);
         }
         transform.GetChild(0).GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Animations/Player/{player.playerAniStr}");
-        transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>($"Sprites/Weapon/{weapon.weaponSpriteName}");
+        transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[player.spriteIndex];
     }
    
 }

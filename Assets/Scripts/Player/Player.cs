@@ -4,24 +4,19 @@ using UnityEngine;
 [System.Serializable]
 public class Player 
 {
-    public int maxHealthValue;
-    public float maxRange;
-    public int maxDamage;
-    public float maxSpeed;
-    //[Header("# Property")]
+    [Header("# Property")]
     public string namePlayer;
     public string description;
+
+
     public float baseSpeed;
     public int baseMaxHealth;
-    public int baseHealth;
     public int basePhysicDamage;
-    public int baseMagicalDamage;
-    //[Header("# Player Animator")]
+    [Header("# Player Animator")]
     public string playerAniStr;
 
-    //[Header("# Sprites")]
-
-    public string playerSpriteName;
+    [Header("# Sprites")]
+    public int spriteIndex;
 
     //[Header("# Lock")]
     public bool isLock;

@@ -358,6 +358,7 @@ MonoBehaviour:
   attackDamage: 0
   moveSpeed: 0
   timeSpawnDelay: 0
+  isDash: 0
   enemyMoveSpeed: 5
 --- !u!50 &4814873110941705056
 Rigidbody2D:

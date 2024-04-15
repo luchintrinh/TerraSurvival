@@ -38,24 +38,27 @@ public class LoadDataChoosing : MonoBehaviour
         LoadWeaponList();
     }
 
+    public void ClearCharacterAndWeapon()
+    {
+        foreach(Transform obj in containerCharacter.transform)
+        {
+            Destroy(obj.gameObject);
+        }
+        foreach (Transform obj in containerWeapon.transform)
+        {
+            Destroy(obj.gameObject);
+        }
+    }
     public void LoadCharacterList()
     {
+        ClearCharacterAndWeapon();
         for (int i = 0; i < characters.Length; i++)
         {
             if (characters[i].isLock) continue;
             GameObject character = Instantiate(item, containerCharacter.transform);
             int index = i;
             character.GetComponent<Button>().onClick.AddListener(delegate { ChoosingCharacter(index); });
-            Sprite sprite = Resources.Load<Sprite>("Sprites/Player/kho");
-            Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/Player");
-            foreach (Sprite item in sprites)
-            {
-                if (item.name == characters[i].playerSpriteName)
-                {
-                    sprite = item;
-                    break;
-                }
-            }
+            Sprite sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[characters[i].spriteIndex];
             character.transform.GetChild(1).GetComponent<Image>().sprite = sprite;
             
         }
@@ -68,7 +71,7 @@ public class LoadDataChoosing : MonoBehaviour
             GameObject weapon = Instantiate(item, containerWeapon.transform);
             int index = i;
             weapon.GetComponent<Button>().onClick.AddListener(delegate { ChoosingWeapon(index); });
-            weapon.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Weapon/{weapons[i].weaponSpriteName}");
+            weapon.transform.GetChild(1).GetComponent<Image>().sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[weapons[i].spriteIndex];
         }
     }
     
@@ -83,6 +86,8 @@ public class LoadDataChoosing : MonoBehaviour
         {
             GameManager.instance.playerChosen.Add(characters[index]);
         }
+        FindObjectOfType<UIDisplayPlayerProperty>().SetPlayer(GameManager.instance.playerChosen[0]);
+        FindObjectOfType<UIDisplayPlayerProperty>().SetListValueCharacter();
         FindObjectOfType<UIMenuCanvas>().SetProperty();
         
     }
@@ -98,6 +103,8 @@ public class LoadDataChoosing : MonoBehaviour
         {
             GameManager.instance.weaponChosen.Add(weapons[index]);
         }
+        FindObjectOfType<UIDisplayPlayerProperty>().SetWeapon(GameManager.instance.weaponChosen[0]);
+        FindObjectOfType<UIDisplayPlayerProperty>().SetListValueWeapon();
         FindObjectOfType<UIMenuCanvas>().SetProperty();
     }
 }

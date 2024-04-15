@@ -168,6 +168,7 @@ MonoBehaviour:
   initialSprite: {fileID: -388837435, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   initialPos: {x: 0, y: 0, z: 0}
   explosionRange: 1
+  attackRange: 0
 --- !u!95 &1224772108621197113
 Animator:
   serializedVersion: 5

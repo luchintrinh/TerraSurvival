@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MoveSpeed
   m_EditorClassIdentifier: 
   id: 0
-  level: 5
+  level: 2
   nameSkill: Move Speed
   description: in crease move speed
   ratio: 2
   sprite: {fileID: 0}
+  weaponMaxHeath: {fileID: 0}

@@ -26,18 +26,6 @@ public class MenuButton : MonoBehaviour
         img.color =Color.black;
     }
 
-    public void MenuStart()
-    {
-
-    }
-    public void MenuOptions()
-    {
-
-    }
-    public void MenuProgress()
-    {
-
-    }
     public void QuitGame()
     {
         Application.Quit();

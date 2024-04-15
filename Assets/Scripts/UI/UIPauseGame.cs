@@ -10,6 +10,12 @@ public class UIPauseGame : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        GameManager.instance.isPause = true;
+    }
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+        GameManager.instance.isPause = false;
     }
     public void ResumeGame()
     {
@@ -30,6 +36,7 @@ public class UIPauseGame : MonoBehaviour
     public void Replay()
     {
         SceneManager.LoadScene(1);
+        GameManager.instance.isPause = false;
         Time.timeScale = 1;
     }
 }

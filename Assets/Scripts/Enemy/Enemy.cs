@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     public float timeSpawnDelay;
 
 
+    // attack
+    public bool isDash;
     public float enemyMoveSpeed;
     private void Awake()
     {
@@ -68,7 +70,7 @@ public class Enemy : MonoBehaviour
         {
             ani.SetBool("Run", player!=null);
         }
-        if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack_Goblin")) return;
+        if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack_Goblin") && isDash) return;
         rb.MovePosition(transform.position + GetDirection(player.position, transform.position) * enemyMoveSpeed * Time.deltaTime);
     }
     private void LateUpdate()

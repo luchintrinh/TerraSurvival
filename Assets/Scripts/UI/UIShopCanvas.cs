@@ -39,18 +39,19 @@ public class UIShopCanvas : MonoBehaviour
     [Header("# Price")]
     [SerializeField] TextMeshProUGUI priceText;
 
+    [Header("# Description")]
+    [SerializeField] TextMeshProUGUI desc;
 
-    // Display property
-    [SerializeField] Slider damageUI;
-    [SerializeField] Slider speedUI;
-    [SerializeField] Slider healthUI;
-    [SerializeField] Slider rangeUI;
+    [Header("# Get Sprite Manager")]
+    SpritesManager spritesManager;
+
  
 
     private void Awake()
     {
 
         children = new List<Transform>();
+        spritesManager = FindObjectOfType<SpritesManagement>().sprites;
         type = Type.player;
         GetItemInitial();
 
@@ -110,15 +111,8 @@ public class UIShopCanvas : MonoBehaviour
             {
                 playerItem.GetComponent<Button>().onClick.AddListener(() => OnClickItem(index));
             }
-            Sprite sprite=Resources.Load<Sprite>("Sprites/Player/kho");
-            Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/Player");
-            foreach (Sprite item in sprites)
-            {
-                if (item.name == playerStore[i].playerSpriteName)
-                {
-                    sprite = item;
-                }
-            }
+            Sprite sprite=spritesManager.listSprite[playerStore[i].spriteIndex];
+
             playerItem.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
             playerItem.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = playerStore[i].namePlayer;
             if (!playerStore[i].isLock)
@@ -148,7 +142,7 @@ public class UIShopCanvas : MonoBehaviour
             {
                 weaponItem.GetComponent<Button>().onClick.AddListener(() => OnClickItem(index));
             }
-            weaponItem.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Weapon/{weaponStore[i].weaponSpriteName}");
+            weaponItem.transform.GetChild(0).GetComponent<Image>().sprite = spritesManager.listSprite[weaponStore[i].spriteIndex];
             weaponItem.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = weaponStore[i].weaponName;
             if (!weaponStore[i].isLock)
             {
@@ -163,7 +157,6 @@ public class UIShopCanvas : MonoBehaviour
         foreach(Transform child in children)
         {
             child.GetComponent<Image>().color = Color.white;
-
         }
     }
     public void OnClickItem(int i)
@@ -172,11 +165,13 @@ public class UIShopCanvas : MonoBehaviour
         {
             case Type.player:
                 OnClickClear();
-                itemDetailPopup.SetActive(true);
-                itemSprite.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Player/{playerStore[i].playerSpriteName}");
-                nameText.GetComponent<TextMeshProUGUI>().text = playerStore[i].namePlayer;
                 DisplayPropertyPlayer(playerStore[i]);
+                itemDetailPopup.SetActive(true);
+                
+                itemSprite.GetComponent<Image>().sprite = spritesManager.listSprite[playerStore[i].spriteIndex];
+                nameText.GetComponent<TextMeshProUGUI>().text = playerStore[i].namePlayer;
                 priceText.GetComponent<TextMeshProUGUI>().text = playerStore[i].price.ToString();
+                desc.GetComponent<TextMeshProUGUI>().text = playerStore[i].description;
                 itemDetailPopup.transform.GetChild(2).GetChild(1).GetComponent<Button>().onClick.AddListener(() => OnClickBuyAndExit(i));
                 if (Coin < playerStore[i].price)
                 {
@@ -184,13 +179,16 @@ public class UIShopCanvas : MonoBehaviour
                     itemDetailPopup.transform.GetChild(2).GetChild(1).GetComponent<Button>().interactable = false;
                     itemDetailPopup.transform.GetChild(2).GetChild(1).GetChild(1).gameObject.SetActive(true);
                 }
+                
                 break;
             case Type.weapon:
                 OnClickClear();
+                DisplayPropertyWeapon(weaponStore[i]);
                 itemDetailPopup.SetActive(true);
-                itemSprite.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Sprites/Weapon/{weaponStore[i].weaponSpriteName}");
+                itemSprite.GetComponent<Image>().sprite = spritesManager.listSprite[weaponStore[i].spriteIndex];
                 nameText.GetComponent<TextMeshProUGUI>().text = weaponStore[i].weaponName;
                 priceText.GetComponent<TextMeshProUGUI>().text = weaponStore[i].price.ToString();
+                desc.GetComponent<TextMeshProUGUI>().text = weaponStore[i].description;
                 itemDetailPopup.transform.GetChild(2).GetChild(1).GetComponent<Button>().onClick.AddListener(() => OnClickBuyAndExit(i));
                 if (Coin < weaponStore[i].price)
                 {
@@ -198,6 +196,7 @@ public class UIShopCanvas : MonoBehaviour
                     itemDetailPopup.transform.GetChild(2).GetChild(1).GetComponent<Button>().interactable = false;
                     itemDetailPopup.transform.GetChild(2).GetChild(1).GetChild(1).gameObject.SetActive(true);
                 }
+                
                 break;
         }
         
@@ -247,18 +246,10 @@ public class UIShopCanvas : MonoBehaviour
     }
     public void DisplayPropertyPlayer(Player player)
     {
-        SetValueSlider(player.baseHealth, player.maxHealthValue, healthUI);
-        SetValueSlider(player.basePhysicDamage, player.maxDamage, damageUI);
-        SetValueSlider(player.baseSpeed, player.maxSpeed, speedUI);
+        transform.GetChild(1).GetChild(1).GetComponent<UIDetailPopUp>().SetValuePropertyCharacter(player);
     }
-    public void SetValueSlider(int value, int maxValue, Slider slider)
+    public void DisplayPropertyWeapon(WeaponObject weapon)
     {
-        slider.GetComponent<Slider>().value = value;
-        slider.GetComponent<Slider>().maxValue = maxValue;
-    }
-    public void SetValueSlider(float value, float maxValue, Slider slider)
-    {
-        slider.GetComponent<Slider>().value = value;
-        slider.GetComponent<Slider>().maxValue = maxValue;
+        transform.GetChild(1).GetChild(1).GetComponent<UIDetailPopUp>().SetValuePropertyWeapon(weapon);
     }
 }

@@ -9,13 +9,12 @@ public class WeaponObject
     public bool isGun;
     public string weaponName;
     public string description;
+
     public int bonusPhysicDamage;
-    public int bonusMagicalDamage;
     public int explosionDamage;
     public float explosionRange;
     public int strengthenDamage;
     public int bonusMaxHealth;
-    public float bonusArmor;
     public float bonusMoveSpeed;
     public float attackDelay;
     public float attackDelayUltimate;
@@ -23,7 +22,7 @@ public class WeaponObject
     public float attackRange;
 
     [Header("# Weapon")]
-    public string weaponSpriteName;
+    public int spriteIndex;
     public string weaponAniStr;
 
     [Header("# bullets ")]

@@ -71,10 +71,12 @@ public class InputSystemManagement : MonoBehaviour
         if (context.started)
         {
             view.SetActive(true);
+            FindObjectOfType<UIManagement>().propertyPopup.SetActive(true);
         }
         else if (context.canceled)
         {
             view.SetActive(false);
+            FindObjectOfType<UIManagement>().propertyPopup.SetActive(false);
         }
     }
 

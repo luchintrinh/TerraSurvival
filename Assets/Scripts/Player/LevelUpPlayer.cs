@@ -1,9 +1,8 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Linq;
 
 public class LevelUpPlayer : MonoBehaviour
 {
@@ -16,9 +15,13 @@ public class LevelUpPlayer : MonoBehaviour
     public List<LevelUpSkillObject> skillUpgraded;
 
     public GameObject listViewSkillsUpgraded;
+    
+
+    PlayerSetting player;
 
     private void Start()
     {
+        player = GetComponent<PlayerSetting>();
         ResetLevelSkill();
     }
     public void ResetLevelSkill()
@@ -112,9 +115,10 @@ public class LevelUpPlayer : MonoBehaviour
                 GetComponent<PlayerSetting>().IncreaseExplosion(level.ratio);
                 break;
         }
-        
         SetInformationSkillUpgraded();
+        FindObjectOfType<UIDisplayPlayerProperty>().SetListValuePlayerDetail(player.physicDamage, player.moveSpeed, player.maxHealth, player.attackRange, player.explosionRange, player.attackDelay, player.attackDelayUltimate);
         FindObjectOfType<UIManagement>().CloseLevelUp();
+        FindObjectOfType<UIPauseGame>().ContinueGame();
         SetItemSkillHiden();
     }
     public void SetItemSkillHiden()

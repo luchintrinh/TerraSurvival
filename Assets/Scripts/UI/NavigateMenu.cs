@@ -19,6 +19,9 @@ public class NavigateMenu : MonoBehaviour
     public Vector2 jumpSpace=new Vector2(1920, 0);
     // Start is called before the first frame update
 
+    [Header("# Show Properties")]
+    [SerializeField] GameObject playerPropertiesContainer;
+    [SerializeField] GameObject weaponPropertiesContainer;
 
     public Canvas gamePlayCanvas;
     void Start()
@@ -47,12 +50,18 @@ public class NavigateMenu : MonoBehaviour
         chooseCharacter.DOAnchorPos(initialPosChooseCharacter-jumpSpace, 1, false);
         chooseWeapon.DOAnchorPos(initialPosChooseWeapon-jumpSpace, 1, false);
         FindObjectOfType<LoadDataChoosing>().LoadCharacterAndWeapon();
+        FindObjectOfType<UIDisplayPlayerProperty>().SetPlayer(GameManager.instance.playerChosen[0]);
+        FindObjectOfType<UIDisplayPlayerProperty>().SetWeapon(GameManager.instance.weaponChosen[0]);
+        FindObjectOfType<UIDisplayPlayerProperty>().containerList = playerPropertiesContainer;
+        FindObjectOfType<UIDisplayPlayerProperty>().SetListValueCharacter();
     }
     public void ChooseWeaponScene()
     {
         mainMenu.DOAnchorPos(initialPosMainMenu-jumpSpace*2, 1, false);
         chooseCharacter.DOAnchorPos(initialPosChooseCharacter-jumpSpace*2, 1, false);
         chooseWeapon.DOAnchorPos(initialPosChooseWeapon - jumpSpace * 2, 1, false);
+        FindObjectOfType<UIDisplayPlayerProperty>().containerList = weaponPropertiesContainer;
+        FindObjectOfType<UIDisplayPlayerProperty>().SetListValueWeapon();
     }
 
     public void ChooseShopScene()

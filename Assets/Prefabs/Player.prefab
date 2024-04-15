@@ -186,7 +186,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 494021101
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa88a3857a458d4a9111e53a617b259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTakeDamage: 0.3
 --- !u!1 &2252284900238014859
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +899,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 494021101
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1121,7 +1122,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -623524009
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9e4484f748e7441da484d8422cdc728c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1453,7 +1454,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 494021101
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1308821951, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1695,7 +1696,7 @@ Transform:
   m_GameObject: {fileID: 8488121757386086200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.11, y: -1.39, z: 0}
+  m_LocalPosition: {x: -2.15, y: -2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1726,12 +1727,10 @@ MonoBehaviour:
     weaponName: 
     description: 
     bonusPhysicDamage: 0
-    bonusMagicalDamage: 0
     explosionDamage: 0
     explosionRange: 0
     strengthenDamage: 0
     bonusMaxHealth: 0
-    bonusArmor: 0
     bonusMoveSpeed: 0
     attackDelay: 0
     attackDelayUltimate: 0
@@ -2012,9 +2011,7 @@ MonoBehaviour:
     description: 
     baseSpeed: 0
     baseMaxHealth: 0
-    baseHealth: 0
     basePhysicDamage: 0
-    baseMagicalDamage: 0
     playerAniStr: 
     playerSpriteName: 
     isLock: 0
@@ -2024,12 +2021,10 @@ MonoBehaviour:
     weaponName: 
     description: 
     bonusPhysicDamage: 0
-    bonusMagicalDamage: 0
     explosionDamage: 0
     explosionRange: 0
     strengthenDamage: 0
     bonusMaxHealth: 0
-    bonusArmor: 0
     bonusMoveSpeed: 0
     attackDelay: 0
     attackDelayUltimate: 0
@@ -2042,7 +2037,6 @@ MonoBehaviour:
     isLock: 0
     price: 0
   physicDamage: 0
-  mageDamage: 0
   moveSpeed: 0
   maxHealth: 0
   explosionDamage: 0
@@ -2054,7 +2048,6 @@ MonoBehaviour:
   ratio: 2
   level: 0
   exp: 0
-  timeTakeDamage: 0.3
 --- !u!114 &2053534663957574196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2140,6 +2133,7 @@ MonoBehaviour:
   baseSpeed: 0
   dashBonusSpeed: 10
   isSkillMaxHealthUnlock: 0
+  isSkillMaxCooldownNormal: 0
 --- !u!1 &8702487687513003525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,7 +2160,7 @@ Transform:
   m_GameObject: {fileID: 8702487687513003525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21, y: -0.26, z: 0}
+  m_LocalPosition: {x: -0.06, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2212,7 +2206,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -257396147
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Time: 0.3
   m_PreviewTimeScale: 1

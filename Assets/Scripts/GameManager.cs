@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveOrGet()
     {
-        PlayerPrefs.DeleteKey("GameItem");
+        //PlayerPrefs.DeleteKey("GameItem");
         store = GetComponent<JsonUtilityReadWrite>();
         GamePlay play = new GamePlay(0, 0, 0);
         if (!PlayerPrefs.HasKey("GamePlay"))
