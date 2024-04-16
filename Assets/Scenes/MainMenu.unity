@@ -1615,7 +1615,7 @@ MonoBehaviour:
   playerSpawners: []
   playerChosen: []
   weaponChosen: []
-  levels: 0a0000001e0000003c0000006400000096000000c8000000040100004001000090010000f40100005802000020030000
+  levels: 0a0000001e0000003c000000500000006400000096000000b4000000c8000000e6000000fa0000002c0100005e010000
   playerInfo:
     namePlayer: 
     description: 
@@ -2406,7 +2406,7 @@ RectTransform:
   m_Father: {fileID: 1551257380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.000061035156, y: 0}
   m_Pivot: {x: 0, y: 0.5}
@@ -3537,7 +3537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &684363958
 RectTransform:
   m_ObjectHideFlags: 0

@@ -115,6 +115,7 @@ public class LevelUpPlayer : MonoBehaviour
                 GetComponent<PlayerSetting>().IncreaseExplosion(level.ratio);
                 break;
         }
+        FindObjectOfType<UIListMaxSkillUpgraded>().SetSkill();
         SetInformationSkillUpgraded();
         FindObjectOfType<UIDisplayPlayerProperty>().SetListValuePlayerDetail(player.physicDamage, player.moveSpeed, player.maxHealth, player.attackRange, player.explosionRange, player.attackDelay, player.attackDelayUltimate);
         FindObjectOfType<UIManagement>().CloseLevelUp();

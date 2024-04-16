@@ -8,4 +8,5 @@ public class SpritesManager :ScriptableObject
 {
     public Sprite[] listSprite;
     public Animator[] listAnimator;
+    public Sprite[] listAchievement;
 }

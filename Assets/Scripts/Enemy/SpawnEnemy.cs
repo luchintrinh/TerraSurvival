@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,6 +49,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         if(spawnEnemy==null)
         spawnEnemy = StartCoroutine(SpawnEnemyCoroutine());
+        FindObjectOfType<UIManagement>().SetInformationWarning($"Wave {wave + 1}", Color.black);
     }
     public void StopCoroutine()
     {
@@ -87,6 +88,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (wave == waveNumber-1 && enemyDead==enemiesOfWave[wave])
         {
+            FindObjectOfType<UIManagement>().SetInformationWarning($"Boss xuất hiện", Color.red);
             GameObject enemy = GameManager.instance.pool.Get(8);
             enemy.transform.position = pointSpawn[4].position;
         }

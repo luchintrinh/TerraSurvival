@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class UIManagement : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class UIManagement : MonoBehaviour
     [SerializeField] GameObject winCanvas;
     [SerializeField] GameObject lossCanvas;
     [SerializeField] GameObject UILevelUp;
+    [SerializeField] GameObject WarningPopup;
+
     public GameObject propertyPopup;
 
     [SerializeField] Slider healthSlider;
@@ -69,6 +72,21 @@ public class UIManagement : MonoBehaviour
         Time.timeScale = 0;
         UILevelUp.gameObject.SetActive(true);
         propertyPopup.SetActive(true);
+    }
+
+    public void SetInformationWarning(string text, Color color)
+    {
+        StartCoroutine(PopupCoroutine(text, color));
+    }
+
+    IEnumerator PopupCoroutine(string text, Color color)
+    {
+        WarningPopup.gameObject.SetActive(true);
+        WarningPopup.transform.DOShakeRotation(1, 30f);
+        WarningPopup.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = text;
+        WarningPopup.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = color;
+        yield return new WaitForSeconds(2f);
+        WarningPopup.gameObject.SetActive(false);
     }
 
     public void CloseLevelUp()
