@@ -17,4 +17,5 @@ MonoBehaviour:
   nameSkill: Explosion Range
   description: in crease explosion range
   ratio: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: dbe1f649a30643cea0e839a906dfedea, type: 3}
+  weaponMaxHeath: {fileID: 0}

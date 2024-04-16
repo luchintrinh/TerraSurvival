@@ -2,6 +2,7 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AchievementManagement : MonoBehaviour
 {
@@ -32,7 +33,13 @@ public class AchievementManagement : MonoBehaviour
             achievement.GetComponent<AchievementButton>().achievement = achievements[i];
             if (achievements[i].isAchieved)
             {
-                achievement.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>($"Achievements/{achievements[i].spriteName}");
+                achievement.transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpritesManagement>().sprites.listAchievement[achievements[i].spriteIndex];
+                if (achievements[i].isAchieved)
+                {
+                    achievement.transform.GetChild(1).gameObject.SetActive(true);
+                    achievement.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = achievements[i].goal.ToString();
+
+                }
             }
         }
     }

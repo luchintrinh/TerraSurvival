@@ -10,7 +10,7 @@ public class AchievementButton : MonoBehaviour
     {
         if (achievement.isAchieved)
         {
-            FindObjectOfType<UIAchivement>().SetTextAchievement(Resources.Load<Sprite>($"Achievements/{achievement.spriteName}"), achievement.achievementName);
+            FindObjectOfType<UIAchivement>().SetTextAchievement(FindObjectOfType<SpritesManagement>().sprites.listAchievement[achievement.spriteIndex], achievement.achievementName);
         }
         else
         {

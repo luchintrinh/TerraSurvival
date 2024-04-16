@@ -17,5 +17,5 @@ MonoBehaviour:
   nameSkill: Move Speed
   description: in crease move speed
   ratio: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 12bba31e10a26b645908ca35cce3ac2a, type: 3}
   weaponMaxHeath: {fileID: 0}

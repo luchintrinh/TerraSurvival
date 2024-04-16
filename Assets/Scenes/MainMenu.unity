@@ -1719,19 +1719,19 @@ MonoBehaviour:
   achievements:
   - type: 0
     achievementName: "\u0110\xE1nh b\u1EA1i 20 qu\xE1i"
-    spriteName: danh_bai_20_quai
+    spriteIndex: 0
     isAchieved: 0
     goal: 20
     coin: 20
   - type: 0
     achievementName: "\u0110\xE1nh b\u1EA1i 50 qu\xE1i"
-    spriteName: danh_bai_50_quai
+    spriteIndex: 1
     isAchieved: 0
     goal: 50
     coin: 50
   - type: 0
     achievementName: "\u0110\xE1nh b\u1EA1i 150 qu\xE1i"
-    spriteName: danh_bai_150_quai
+    spriteIndex: 2
     isAchieved: 0
     goal: 150
     coin: 150

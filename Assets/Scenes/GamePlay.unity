@@ -2201,6 +2201,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 5375690773345145244, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
+      propertyPath: skills.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375690773345145244, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
+      propertyPath: skills.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a90bcafba94c88489023636a43dde75, type: 2}
+    - target: {fileID: 5375690773345145244, guid: 6fa9c571fac20c14f8c2fc557f45fe9f, type: 3}
       propertyPath: listViewSkillsUpgraded
       value: 
       objectReference: {fileID: 539799056}
