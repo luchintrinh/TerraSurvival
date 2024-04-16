@@ -95,6 +95,7 @@ public class UIManagement : MonoBehaviour
         play.killNumber += GameManager.instance.killed;
         play.timerPlay += timer;
         FindObjectOfType<JsonUtilityReadWrite>().SaveToJsonUtility(play, "GamePlay");
+        FindObjectOfType<AchievementManagement>().CheckAchievement(play.killNumber);
     }
 
     public void LossCanvas()

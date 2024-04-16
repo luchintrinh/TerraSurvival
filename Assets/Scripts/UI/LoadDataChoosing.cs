@@ -59,7 +59,7 @@ public class LoadDataChoosing : MonoBehaviour
             int index = i;
             character.GetComponent<Button>().onClick.AddListener(delegate { ChoosingCharacter(index); });
             Sprite sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[characters[i].spriteIndex];
-            character.transform.GetChild(1).GetComponent<Image>().sprite = sprite;
+            character.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
             
         }
     }
@@ -71,7 +71,7 @@ public class LoadDataChoosing : MonoBehaviour
             GameObject weapon = Instantiate(item, containerWeapon.transform);
             int index = i;
             weapon.GetComponent<Button>().onClick.AddListener(delegate { ChoosingWeapon(index); });
-            weapon.transform.GetChild(1).GetComponent<Image>().sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[weapons[i].spriteIndex];
+            weapon.transform.GetChild(0).GetComponent<Image>().sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[weapons[i].spriteIndex];
         }
     }
     

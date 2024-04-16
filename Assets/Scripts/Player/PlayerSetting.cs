@@ -133,7 +133,7 @@ public class PlayerSetting : MonoBehaviour
             transform.GetChild(2).localPosition = new Vector3(0, -0.3f, 0);
         }
         transform.GetChild(0).GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>($"Animations/Player/{player.playerAniStr}");
-        transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[player.spriteIndex];
+        transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[weapon.spriteIndex];
     }
    
 }

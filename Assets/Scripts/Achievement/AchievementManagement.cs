@@ -35,21 +35,22 @@ public class AchievementManagement : MonoBehaviour
             }
         }
     }
-    private void Update()
-    {
 
-        foreach(Achievement achiev in achievements)
+    public void CheckAchievement(int goal)
+    {
+        foreach (Achievement achiev in achievements)
         {
             switch (achiev.type)
             {
                 case Achievement.Type.killed:
-                    SetAchievement(GameManager.instance.killed, achiev);
+                    SetAchievement(goal, achiev);
                     break;
                 case Achievement.Type.survival:
                     break;
             }
         }
     }
+
     public void SetAchievement(int goalSuccess, Achievement achiev)
     {
         if (achiev.isAchieved) return;

@@ -10,4 +10,5 @@ public class Achievement
     public string spriteName;
     public bool isAchieved;
     public int goal;
+    public int coin;
 }
