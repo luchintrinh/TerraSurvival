@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 404311402469024399}
   - component: {fileID: 6827219775789979938}
   - component: {fileID: 6933135071147938181}
+  - component: {fileID: 5061210571062987603}
   m_Layer: 6
   m_Name: Enemy 3
   m_TagString: Enemy
@@ -297,6 +298,7 @@ MonoBehaviour:
   attackDamage: 0
   moveSpeed: 0
   timeSpawnDelay: 0
+  isDash: 0
   enemyMoveSpeed: 5
 --- !u!50 &4814873110941705056
 Rigidbody2D:
@@ -403,6 +405,18 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &5061210571062987603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014346456560118095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc20e3fb3714bb4db7ed89ec84a205c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8860044795991875439
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         GetComponent<HealthManager>().health = GetComponent<HealthManager>().maxHealth;
         health.isLive = true;
     }
+    /*
     private void Update()
     {
         if (ani.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
@@ -73,6 +74,7 @@ public class Enemy : MonoBehaviour
         if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack_Goblin") && isDash) return;
         rb.MovePosition(transform.position + GetDirection(player.position, transform.position) * enemyMoveSpeed * Time.deltaTime);
     }
+    */
     private void LateUpdate()
     {
         if (!health.isLive) return;
