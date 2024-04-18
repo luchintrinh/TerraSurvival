@@ -8,7 +8,7 @@
             "basePhysicDamage": 10,
             "playerAniStr": "Player",
             "spriteIndex": 0,
-            "isLock": true,
+            "isLock": false,
             "price": 0
         },
         {
@@ -42,7 +42,7 @@
             "weaponAniStr": "",
             "bulletPoolIndex": 0,
             "bulletStrengthenPoolIndex": 9,
-            "isLock": true,
+            "isLock": false,
             "price": 0
         },
         {

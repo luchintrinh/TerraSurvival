@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using IngameDebugConsole;
 
 public class GameManager : MonoBehaviour
 {
@@ -63,7 +64,6 @@ public class GameManager : MonoBehaviour
 
     public void SaveOrGet()
     {
-        //PlayerPrefs.DeleteKey("GameItem");
         store = GetComponent<JsonUtilityReadWrite>();
         GamePlay play = new GamePlay(0, 0, 0);
         if (!PlayerPrefs.HasKey("GamePlay"))
@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
             game.playerList = characters;
             game.weaponList = weapons;
             store.SaveToJsonUtility(game, "GameItem");
-            File.WriteAllText(Application.dataPath + "/Data/GameItem.json", store.GetJsonUtility("GameItem"));
         }
         else
         {
@@ -84,6 +83,8 @@ public class GameManager : MonoBehaviour
             characters = game.playerList;
             weapons = game.weaponList;
         }
+        Debug.Log(characters.Length);
+        Debug.Log(weapons.Length);
     }
 
     private void Awake()

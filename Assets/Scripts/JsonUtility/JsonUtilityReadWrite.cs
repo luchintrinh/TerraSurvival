@@ -42,7 +42,6 @@ public class JsonUtilityReadWrite : MonoBehaviour
     public void SaveToJsonUtility(GameItem game, string nameSaved)
     {
         string json = JsonUtility.ToJson(game, true);
-        File.WriteAllText(Application.dataPath + "/Data/GameItem.json", json);
         PlayerPrefs.SetString(nameSaved, json);
         PlayerPrefs.Save();
     }
@@ -58,17 +57,5 @@ public class JsonUtilityReadWrite : MonoBehaviour
         PlayerPrefs.SetString(nameSaved, json);
         PlayerPrefs.Save();
     }
-    public void SaveToJsonUtility(Player[] game, string nameSaved)
-    {
-        //string json = JsonUtility.ToJson(game);
-        string json = JsonHelper.ToJson(game, true);
-        foreach (Player i in game)
-        {
-            Debug.Log(i.namePlayer);
-        }
-        Debug.Log(json);
-        File.WriteAllText(Application.dataPath + $"/Data/{nameSaved}.json", json);
-        PlayerPrefs.SetString(nameSaved, json);
-        PlayerPrefs.Save();
-    }
+
 }
