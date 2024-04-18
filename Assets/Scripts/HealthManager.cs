@@ -122,12 +122,11 @@ public class HealthManager : MonoBehaviour
         healLost.GetComponent<HealthLostEnemy>().PopUpMovement();
         healLost.GetComponent<HealthLostEnemy>().SetText(damage);
         healLost.transform.position = gameObject.transform.position;
-        if (health < 0)
+        if (health <= 0)
         {
             ani.SetTrigger("Dead");
             isLive = false;
             UnEnableEnemy();
-            //FindObjectOfType<SpawnEnemy>().enemyDead++;
             Invoke("WinCanvas", 1f);
         }
     }

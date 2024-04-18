@@ -59,22 +59,7 @@ public class Enemy : MonoBehaviour
         GetComponent<HealthManager>().health = GetComponent<HealthManager>().maxHealth;
         health.isLive = true;
     }
-    /*
-    private void Update()
-    {
-        if (ani.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
-        rb.velocity = Vector2.zero;
-        player = GetComponent<FindNearest>().FindPlayer();
-        if (!player||!health.isLive) return;
-        
-        if (GetComponent<HealthManager>().type == HealthManager.Type.Boss)
-        {
-            ani.SetBool("Run", player!=null);
-        }
-        if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack_Goblin") && isDash) return;
-        rb.MovePosition(transform.position + GetDirection(player.position, transform.position) * enemyMoveSpeed * Time.deltaTime);
-    }
-    */
+
     private void LateUpdate()
     {
         if (!health.isLive) return;

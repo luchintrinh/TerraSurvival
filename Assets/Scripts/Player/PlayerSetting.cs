@@ -100,6 +100,7 @@ public class PlayerSetting : MonoBehaviour
     }
     public void IncreaseExplosion(float ratio)
     {
+        explosionRange = (int)Mathf.Ceil(UpgradeWeapon(weapon.explosionRange, ratio));
         explosionDamage = (int)Mathf.Ceil(UpgradeWeapon(weapon.explosionDamage, ratio));
     }
 

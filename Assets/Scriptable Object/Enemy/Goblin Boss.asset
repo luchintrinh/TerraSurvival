@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Goblin
   description: sdfsdf
-  health: 5000
-  maxHealth: 5000
+  health: 100
+  maxHealth: 100
   damage: 20
   speed: 4
   spawnDelayTime: 5
+  attackRange: 0
   getExp: 0
