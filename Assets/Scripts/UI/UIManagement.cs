@@ -16,6 +16,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField] GameObject lossCanvas;
     [SerializeField] GameObject UILevelUp;
     [SerializeField] GameObject WarningPopup;
+    [SerializeField] GameObject UIInGame;
 
     public GameObject propertyPopup;
 
@@ -52,7 +53,7 @@ public class UIManagement : MonoBehaviour
     {
         int wave = spawn.wave + 1;
         waveNumberText.text ="Wave "+wave.ToString();
-        if (spawn.wave > 2) spawn.wave = 2;
+        //if (spawn.wave > 2) spawn.wave = 2;
         enemyDeadNumber.text = spawn.enemyDead.ToString()+"/"+spawn.enemiesOfWave[spawn.wave];
         timeText.text = Mathf.Floor(timer).ToString() + "s";
     }
@@ -100,6 +101,7 @@ public class UIManagement : MonoBehaviour
     {
         Time.timeScale = 0;
         winCanvas.SetActive(true);
+        UIInGame.SetActive(false);
         winCanvas.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Level {GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().level}";
         winCanvas.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Killed: {FindObjectOfType<SpawnEnemy>().enemyDead}";
         winCanvas.transform.GetChild(0).GetChild(0).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.CoinPickup.ToString();
@@ -120,6 +122,7 @@ public class UIManagement : MonoBehaviour
     {
         Time.timeScale = 0;
         lossCanvas.SetActive(true);
+        UIInGame.SetActive(false);
         lossCanvas.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Level {GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().level}";
         lossCanvas.transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Killed: {FindObjectOfType<SpawnEnemy>().enemyDead}";
         lossCanvas.transform.GetChild(0).GetChild(0).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = GameManager.instance.CoinPickup.ToString();

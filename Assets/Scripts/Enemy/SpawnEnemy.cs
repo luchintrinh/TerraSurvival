@@ -9,7 +9,7 @@ public class SpawnEnemy : MonoBehaviour
 
 
     //way setting
-    public int waveNumber = 3;
+    public int waveNumber = 5;
     public int[] enemiesOfWave;
     public int[] waveDelayEachOther;
     public int[] waveCooldownPercentAllProperty;
@@ -83,7 +83,7 @@ public class SpawnEnemy : MonoBehaviour
     }
 
     private void SpawnEnemyTurn() { 
-        int enemyID = Random.Range(2, wave + 3);
+        int enemyID = Random.Range(2, 5);
         int enemySpawnPoint = Random.Range(0, pointSpawn.Length - 1);
         GameObject enemy = GameManager.instance.pool.Get(enemyID);
         enemy.GetComponent<Enemy>().SetProperty(waveCooldownPercentAllProperty[wave]);

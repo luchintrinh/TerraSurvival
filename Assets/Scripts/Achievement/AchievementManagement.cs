@@ -14,7 +14,6 @@ public class AchievementManagement : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteKey("Achievement");
         AchievementStore achievement = new AchievementStore();
         if (!PlayerPrefs.HasKey("Achievement"))
         {
