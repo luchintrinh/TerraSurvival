@@ -52,7 +52,7 @@ public class UIManagement : MonoBehaviour
     public void GameInformation()
     {
         int wave = spawn.wave + 1;
-        waveNumberText.text ="Wave "+wave.ToString();
+        waveNumberText.text ="Wave "+wave.ToString()+$"/{FindObjectOfType<SpawnEnemy>().waveNumber}";
         //if (spawn.wave > 2) spawn.wave = 2;
         enemyDeadNumber.text = spawn.enemyDead.ToString()+"/"+spawn.enemiesOfWave[spawn.wave];
         timeText.text = Mathf.Floor(timer).ToString() + "s";

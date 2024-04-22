@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
 
     // attack
     public bool isDash;
-    public float enemyMoveSpeed;
     private void Awake()
     {
         health = GetComponent<HealthManager>();

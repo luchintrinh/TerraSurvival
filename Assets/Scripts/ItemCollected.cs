@@ -22,10 +22,12 @@ public class ItemCollected : MonoBehaviour
         switch (type)
         {
             case Type.Gold:
+                FindObjectOfType<SoundManager>().playSFX(SoundManager.SFXType.itemCollect);
                 GameManager.instance.CoinPickup += item.value;
                 gameObject.SetActive(false);
                 break;
             case Type.Health:
+                FindObjectOfType<SoundManager>().playSFX(SoundManager.SFXType.heal);
                 HealthManager health = collision.GetComponentInParent<HealthManager>();
                 int curHeallth = health.health;
                 health.health = curHeallth + item.value > health.maxHealth ? health.maxHealth : curHeallth + item.value;

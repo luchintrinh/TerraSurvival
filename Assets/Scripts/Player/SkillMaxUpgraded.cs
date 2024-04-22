@@ -37,6 +37,7 @@ public class SkillMaxUpgraded : MonoBehaviour
         }
         transform.Find("Trail").gameObject.SetActive(true);
         player.moveSpeed += dashBonusSpeed;
+        FindObjectOfType<SoundManager>().playSFX(SoundManager.SFXType.dash);
         isReadyDash = false;
         skilldurationEnd = Time.time + duration;
         nextTime = Time.time + duration + cooldownTime;

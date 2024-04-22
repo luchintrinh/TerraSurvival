@@ -60,6 +60,13 @@ public class GameManager : MonoBehaviour
     [Header("# In Game")]
     public int killed;
 
+
+    [Header("# level Game")]
+    public EnemySpawnerObject[] ranks;
+    public enum dokho { easy, medium, hard };
+    public dokho rank;
+    
+
     
 
     public void SaveOrGet()

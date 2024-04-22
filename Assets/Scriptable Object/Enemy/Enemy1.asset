@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   damage: 5
-  speed: 4
+  speed: 2
   spawnDelayTime: 0.5
   attackRange: 0
   getExp: 5

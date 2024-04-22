@@ -77,6 +77,7 @@ public class HealthManager : MonoBehaviour
         ani.SetTrigger("Hit");
         if (health < 0)
         {
+            FindObjectOfType<SoundManager>().playSFX(SoundManager.SFXType.playerDead);
             isLive = false;
             Time.timeScale = 0;
             FindObjectOfType<UIManagement>().LossCanvas();
@@ -126,6 +127,7 @@ public class HealthManager : MonoBehaviour
         {
             ani.SetTrigger("Dead");
             isLive = false;
+            FindObjectOfType<SoundManager>().playSFX(SoundManager.SFXType.enemyBossDead);
             UnEnableEnemy();
             Invoke("WinCanvas", 1f);
         }
@@ -143,6 +145,7 @@ public class HealthManager : MonoBehaviour
             GameManager.instance.killed = FindObjectOfType<SpawnEnemy>().enemyDead;
             FindObjectOfType<SpawnEnemy>().StartNextWave();
             GameManager.instance.playerSpawners[0].GetComponent<PlayerSetting>().LevelUp(GetComponent<Enemy>().enemy.getExp);
+            FindObjectOfType<SpawnEnemy>().BossSpawn();
         }
     }
 

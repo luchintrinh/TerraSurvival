@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public enum SFXType { gunLaser, gunLaserUltimate, sword, swordUltimate, exploise, flash, run}
+    public enum SFXType { gunLaser, gunLaserUltimate, sword, swordUltimate, exploise, itemCollect, playerDead, enemyBossAppear, enemyBossDead, heal, dash}
     
     public AudioClip[] sfx;
 

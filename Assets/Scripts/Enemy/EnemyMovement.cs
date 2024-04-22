@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         health = GetComponent<HealthManager>();
     }
-    private void Update()
+    private void FixedUpdate ()
     {
         if (ani.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
         rb.velocity = Vector2.zero;
@@ -26,6 +26,6 @@ public class EnemyMovement : MonoBehaviour
             ani.SetBool("Run", player != null);
         }
         if (ani.GetCurrentAnimatorStateInfo(0).IsName("Attack_Goblin")) return;
-        rb.MovePosition(transform.position + GetComponent<Enemy>().GetDirection(player.position, transform.position) * GetComponent<Enemy>().enemyMoveSpeed * Time.deltaTime);
+        rb.MovePosition(transform.position + GetComponent<Enemy>().GetDirection(player.position, transform.position) * GetComponent<Enemy>().moveSpeed * Time.fixedDeltaTime);
     }
 }

@@ -74,6 +74,6 @@ public class EnemyStateGoblin : MonoBehaviour
         {
             ani.SetBool("Run", player != null);
         }
-        rb.MovePosition(transform.position + GetComponent<Enemy>().GetDirection(player.position, transform.position) * GetComponent<Enemy>().enemyMoveSpeed * Time.deltaTime);
+        rb.MovePosition(transform.position + GetComponent<Enemy>().GetDirection(player.position, transform.position) * GetComponent<Enemy>().moveSpeed * Time.deltaTime);
     }
 }

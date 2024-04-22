@@ -40,7 +40,7 @@ public class EBullet : MonoBehaviour
         ani.SetTrigger("Hit");
         StopMove();
         if(collision.CompareTag("Player"))
-        collision.GetComponent<HealthManager>().TakeDamagePlayer(damage);
+        collision.GetComponentInParent<HealthManager>().TakeDamagePlayer(damage);
 
 
     }

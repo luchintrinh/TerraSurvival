@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 
 public class UIMenuCanvas : MonoBehaviour
 {
+    [SerializeField] Dropdown DropdownLevelDifficultly;
+
     [Header("# Character")]
     [SerializeField] TextMeshProUGUI characterName;
     [SerializeField] Image characterSprite;
@@ -21,6 +23,22 @@ public class UIMenuCanvas : MonoBehaviour
         characterSprite.sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[GameManager.instance.playerChosen[0].spriteIndex];
         weaponName.GetComponent<TextMeshProUGUI>().text = GameManager.instance.weaponChosen[0].weaponName;
         weaponSprite.sprite = FindObjectOfType<SpritesManagement>().sprites.listSprite[GameManager.instance.weaponChosen[0].spriteIndex];
+    }
+    public void OnChangedChooseGameDifficultly()
+    {
+        Debug.Log(DropdownLevelDifficultly.value);
+        if (DropdownLevelDifficultly.value == 0)
+        {
+            GameManager.instance.rank = GameManager.dokho.easy;
+        }
+        if (DropdownLevelDifficultly.value == 1)
+        {
+            GameManager.instance.rank = GameManager.dokho.medium;
+        }
+        if (DropdownLevelDifficultly.value == 2)
+        {
+            GameManager.instance.rank = GameManager.dokho.hard;
+        }
     }
 
 }
