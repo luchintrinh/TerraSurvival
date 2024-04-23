@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveOrGet()
     {
+        //PlayerPrefs.DeleteKey("GameItem");
         store = GetComponent<JsonUtilityReadWrite>();
         GamePlay play = new GamePlay(0, 0, 0);
         if (!PlayerPrefs.HasKey("GamePlay"))
@@ -90,8 +91,6 @@ public class GameManager : MonoBehaviour
             characters = game.playerList;
             weapons = game.weaponList;
         }
-        Debug.Log(characters.Length);
-        Debug.Log(weapons.Length);
     }
 
     private void Awake()
@@ -111,8 +110,27 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SaveOrGet();
-        playerChosen.Add(characters[0]);
-        weaponChosen.Add(weapons[0]);
+        DefaultChosen();
+    }
+
+    public void DefaultChosen()
+    {
+        foreach(Player i in characters)
+        {
+            if (!i.isLock)
+            {
+                playerChosen.Add(i);
+                break;
+            }
+        }
+        foreach (WeaponObject i in weapons)
+        {
+            if (!i.isLock)
+            {
+                weaponChosen.Add(i);
+                break;
+            }
+        }
     }
     public void DestroyGame()
     {

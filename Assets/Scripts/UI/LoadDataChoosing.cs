@@ -86,6 +86,7 @@ public class LoadDataChoosing : MonoBehaviour
         {
             GameManager.instance.playerChosen.Add(characters[index]);
         }
+        if(GameManager.instance.playerChosen.Count>0)
         FindObjectOfType<UIDisplayPlayerProperty>().SetPlayer(GameManager.instance.playerChosen[0]);
         FindObjectOfType<UIDisplayPlayerProperty>().SetListValueCharacter();
         FindObjectOfType<UIMenuCanvas>().SetProperty();
@@ -103,6 +104,7 @@ public class LoadDataChoosing : MonoBehaviour
         {
             GameManager.instance.weaponChosen.Add(weapons[index]);
         }
+        if(GameManager.instance.weaponChosen.Count>0)
         FindObjectOfType<UIDisplayPlayerProperty>().SetWeapon(GameManager.instance.weaponChosen[0]);
         FindObjectOfType<UIDisplayPlayerProperty>().SetListValueWeapon();
         FindObjectOfType<UIMenuCanvas>().SetProperty();

@@ -29,6 +29,7 @@ public class UIDisplayPlayerProperty : MonoBehaviour
     public void SetListValueCharacter()
     {
         ClearAllProperty();
+        if (player==null) return;
         SetItemValue("Damage", player.basePhysicDamage);
         SetItemValue("Move Speed", player.baseSpeed);
         SetItemValue("Health", player.baseMaxHealth);
@@ -36,6 +37,7 @@ public class UIDisplayPlayerProperty : MonoBehaviour
     public void SetListValueWeapon()
     {
         ClearAllProperty();
+        if (player == null || weapon==null) return;
         SetItemValue($"Damage (+{weapon.bonusPhysicDamage})", player.basePhysicDamage);
         SetItemValue($"Move Speed (+{weapon.bonusMoveSpeed})", player.baseSpeed);
         SetItemValue($"Health (+{weapon.bonusMaxHealth})", player.baseMaxHealth);

@@ -1781,10 +1781,10 @@ MonoBehaviour:
   characters:
   - namePlayer: Khan
     description: 
-    baseSpeed: 5
-    baseMaxHealth: 100
+    baseSpeed: 7
+    baseMaxHealth: 80
     basePhysicDamage: 10
-    playerAniStr: Player 2
+    playerAniStr: Player
     spriteIndex: 0
     isLock: 1
     price: 0
@@ -1793,7 +1793,7 @@ MonoBehaviour:
     baseSpeed: 5
     baseMaxHealth: 120
     basePhysicDamage: 10
-    playerAniStr: Player
+    playerAniStr: Player 2
     spriteIndex: 1
     isLock: 1
     price: 50

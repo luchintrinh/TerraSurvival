@@ -50,8 +50,10 @@ public class NavigateMenu : MonoBehaviour
         chooseCharacter.DOAnchorPos(initialPosChooseCharacter-jumpSpace, 1, false);
         chooseWeapon.DOAnchorPos(initialPosChooseWeapon-jumpSpace, 1, false);
         FindObjectOfType<LoadDataChoosing>().LoadCharacterAndWeapon();
+        if(GameManager.instance.playerChosen.Count>0)
         FindObjectOfType<UIDisplayPlayerProperty>().SetPlayer(GameManager.instance.playerChosen[0]);
-        FindObjectOfType<UIDisplayPlayerProperty>().SetWeapon(GameManager.instance.weaponChosen[0]);
+        if (GameManager.instance.weaponChosen.Count > 0)
+            FindObjectOfType<UIDisplayPlayerProperty>().SetWeapon(GameManager.instance.weaponChosen[0]);
         FindObjectOfType<UIDisplayPlayerProperty>().containerList = playerPropertiesContainer;
         FindObjectOfType<UIDisplayPlayerProperty>().SetListValueCharacter();
     }
