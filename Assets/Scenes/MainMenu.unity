@@ -1784,7 +1784,7 @@ MonoBehaviour:
     baseSpeed: 5
     baseMaxHealth: 100
     basePhysicDamage: 10
-    playerAniStr: Player
+    playerAniStr: Player 2
     spriteIndex: 0
     isLock: 1
     price: 0
@@ -1892,6 +1892,18 @@ MonoBehaviour:
     isAchieved: 0
     goal: 150
     coin: 150
+  - type: 1
+    achievementName: "Ch\u01A1i game 5 ph\xFAt"
+    spriteIndex: 3
+    isAchieved: 0
+    goal: 300
+    coin: 50
+  - type: 1
+    achievementName: "Ch\u01A1i game 10 ph\xFAt"
+    spriteIndex: 4
+    isAchieved: 0
+    goal: 600
+    coin: 100
 --- !u!114 &259442925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,7 +5018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &924780000
 RectTransform:
   m_ObjectHideFlags: 0

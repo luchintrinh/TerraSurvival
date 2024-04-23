@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listSprite:
   - {fileID: 8416797952724722639, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
-  - {fileID: 8416797952724722639, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
+  - {fileID: 21300000, guid: d6f80947af627e947b45cfa7a5ccc2c9, type: 3}
   - {fileID: 21300000, guid: b548c4a9d66265f40a10b094a4101622, type: 3}
   - {fileID: 21300000, guid: 3a8eb52b5c3b6a7408c864fa5e3f631f, type: 3}
   listAnimator: []
@@ -22,3 +22,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1c728f7cc6548f24cadceb6478fa25cc, type: 3}
   - {fileID: 21300000, guid: 1c728f7cc6548f24cadceb6478fa25cc, type: 3}
   - {fileID: 21300000, guid: 1c728f7cc6548f24cadceb6478fa25cc, type: 3}
+  - {fileID: 21300062, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  - {fileID: 21300062, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}

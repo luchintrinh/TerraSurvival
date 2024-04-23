@@ -15,6 +15,7 @@ public class EnemyStateGoblin : MonoBehaviour
     public float dashDuration = 1f;
     public float dashTimeDelay = 4f;
     public float nextime = 0;
+    public float endDashTime=1f;
     private void Start()
     {
         state = States.Move;
@@ -31,6 +32,11 @@ public class EnemyStateGoblin : MonoBehaviour
             {
                 Dash();
             }
+        }
+        if (state == States.Dash && Time.time>= endDashTime)
+        {
+            state = States.Move;
+            nextime = Time.time + dashTimeDelay;
         }
     }
 
@@ -54,15 +60,13 @@ public class EnemyStateGoblin : MonoBehaviour
 
     public void Dash()
     {
-        StartCoroutine(DashAction());
+        DashAction();
     }
-    IEnumerator DashAction()
+    public void DashAction()
     {
         state = States.Dash;
         rb.AddForce(GetComponent<Enemy>().GetDirection(player.position, transform.position)*force, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(dashDuration);
-        nextime = Time.time + dashTimeDelay;
-        state = States.Move;
+        endDashTime = Time.time + dashDuration;
     }
 
     private void MoveToPlayer()
