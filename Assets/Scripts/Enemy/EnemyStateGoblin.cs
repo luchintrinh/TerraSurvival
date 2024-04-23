@@ -11,11 +11,12 @@ public class EnemyStateGoblin : MonoBehaviour
     public enum States { Move, Dash}
     public States state;
 
-    public float force = 150f;
+    public float dashSpeed = 10f;
     public float dashDuration = 1f;
     public float dashTimeDelay = 4f;
     public float nextime = 0;
     public float endDashTime=1f;
+    public Vector3 positionTarget;
     private void Start()
     {
         state = States.Move;
@@ -35,6 +36,8 @@ public class EnemyStateGoblin : MonoBehaviour
         }
         if (state == States.Dash && Time.time>= endDashTime)
         {
+            
+            GetComponent<Enemy>().moveSpeed -= dashSpeed;
             state = States.Move;
             nextime = Time.time + dashTimeDelay;
         }
@@ -43,19 +46,7 @@ public class EnemyStateGoblin : MonoBehaviour
     private void Update()
     {
         checkTime();
-        StateAction();
-    }
-    public void StateAction()
-    {
-        switch (state)
-        {
-            case States.Move:
-                MoveToPlayer();
-                break;
-            case States.Dash:
-                
-                break;
-        }
+        MoveToPlayer();
     }
 
     public void Dash()
@@ -64,8 +55,9 @@ public class EnemyStateGoblin : MonoBehaviour
     }
     public void DashAction()
     {
+        positionTarget = player.position;
         state = States.Dash;
-        rb.AddForce(GetComponent<Enemy>().GetDirection(player.position, transform.position)*force, ForceMode2D.Impulse);
+        GetComponent<Enemy>().moveSpeed += dashSpeed;
         endDashTime = Time.time + dashDuration;
     }
 
@@ -78,6 +70,9 @@ public class EnemyStateGoblin : MonoBehaviour
         {
             ani.SetBool("Run", player != null);
         }
-        rb.MovePosition(transform.position + GetComponent<Enemy>().GetDirection(player.position, transform.position) * GetComponent<Enemy>().moveSpeed * Time.deltaTime);
+        player = GetComponent<FindNearest>().FindPlayer();
+        Vector3 dir = GetComponent<Enemy>().GetDirection(positionTarget, transform.position);
+        positionTarget = positionTarget + dir * 15;
+        rb.MovePosition(transform.position + GetComponent<Enemy>().GetDirection(state==States.Move?player.position:positionTarget, transform.position) * GetComponent<Enemy>().moveSpeed * Time.deltaTime);
     }
 }
